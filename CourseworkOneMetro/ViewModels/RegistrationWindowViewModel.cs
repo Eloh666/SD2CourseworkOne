@@ -1,4 +1,6 @@
-﻿using CourseworkOneMetro.Models;
+﻿using System.Windows.Input;
+using CourseworkOneMetro.Models;
+using CourseworkOneMetro.ViewModels.Utils;
 
 namespace CourseworkOneMetro.ViewModels
 {
@@ -16,6 +18,11 @@ namespace CourseworkOneMetro.ViewModels
         {
             get { return _attendeeViewModel; }
             set { _attendeeViewModel = value; }
+        }
+
+        public ICommand ClearViewCommand
+        {
+            get { return new ICommandDelegate(() => _attendeeViewModel.Clear()); }
         }
     }
 }

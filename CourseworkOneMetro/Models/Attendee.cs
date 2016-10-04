@@ -12,7 +12,7 @@ namespace CourseworkOneMetro.Models
         private string _conferenceName;
         private string _registrationType;
         private bool _paid;
-        private bool _presenter;
+        private bool _presenter = true;
         private string _paperTitle;
         private string _institutionTitle;
 
@@ -47,6 +47,20 @@ namespace CourseworkOneMetro.Models
         public object Clone()
         {
             return new Attendee(this);
+        }
+
+        // clears all the property of the current object and resets them all to default
+        public void Clear()
+        {
+            this.Paid = false;
+            this.Presenter = false;
+            this.RegistrationType = "Student";
+            this.Name = "";
+            this.Surname = "";
+            this.PaperTitle = "";
+            this.AttendeeRef = 0;
+            this.ConferenceName = "";
+            this.InstitutionTitle = "";
         }
 
         public uint AttendeeRef

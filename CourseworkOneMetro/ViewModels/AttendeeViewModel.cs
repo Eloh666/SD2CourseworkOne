@@ -16,6 +16,12 @@ namespace CourseworkOneMetro.ViewModels
             handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public void Clear()
+        {
+            base.Clear();
+            OnPropertyChangedEvent(null);
+        }
+
         public object GetAttendeeSavedData()
         {
             return base.Clone();

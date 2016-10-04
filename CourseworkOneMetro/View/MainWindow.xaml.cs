@@ -27,6 +27,7 @@ namespace CourseworkOneMetro
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void HandleChangeText(object sender, TextChangedEventArgs e)

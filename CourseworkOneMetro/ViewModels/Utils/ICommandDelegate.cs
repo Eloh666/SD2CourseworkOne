@@ -8,6 +8,11 @@ namespace CourseworkOneMetro.ViewModels.Utils
 
         private readonly Action _actionToExecute;
 
+        public ICommandDelegate(Action actionToExecute)
+        {
+            this._actionToExecute = actionToExecute;
+        }
+
         public bool CanExecute(object parameter)
         {
             return true;

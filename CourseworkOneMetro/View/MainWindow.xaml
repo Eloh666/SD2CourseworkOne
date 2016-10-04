@@ -12,11 +12,11 @@
         <viewModel:BoolToVisibilityConv
          x:Key="BoolToHiddenConverter"
          TrueValue="Visible" FalseValue="Hidden" />
-        <viewModel:RegistrationWindowViewModel
-         x:Key="RegistrationVM"
-         />
     </Controls:MetroWindow.Resources>
-   
+    <Controls:MetroWindow.DataContext>
+        <viewModel:RegistrationWindowViewModel/>
+    </Controls:MetroWindow.DataContext>
+
 
 
     <Grid>
@@ -27,7 +27,7 @@
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="300"
-                 Text="{Binding Name, Mode=TwoWay}"
+                 Text="{Binding AttendeeViewModel.Name, Mode=TwoWay}"
                  TextChanged="HandleChangeText"
                  />
         <TextBox x:Name="SurnameBox"
@@ -37,7 +37,7 @@
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="300"
-                 Text="{Binding Surname, Mode=TwoWay}"
+                 Text="{Binding AttendeeViewModel.Surname, Mode=TwoWay}"
                  TextChanged="HandleChangeText"
                  />
         <TextBox x:Name="AttendeeBox"
@@ -47,7 +47,7 @@
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="300"
-                 Text="{Binding AttendeeRef, Mode=TwoWay}"
+                 Text="{Binding AttendeeViewModel.AttendeeRef, Mode=TwoWay}"
                  TextChanged="HandleChangeText"
                  />
         <TextBox x:Name="InstitutionBox"
@@ -57,7 +57,7 @@
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="300"
-                 Text="{Binding InstitutionTitle, Mode=TwoWay }"
+                 Text="{Binding AttendeeViewModel.InstitutionTitle, Mode=TwoWay }"
                  TextChanged="HandleChangeText"
                  />
         <TextBox x:Name="ConferenceNameBox"
@@ -67,7 +67,7 @@
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="300"
-                 Text="{Binding ConferenceName, Mode=TwoWay}"
+                 Text="{Binding AttendeeViewModel.ConferenceName, Mode=TwoWay}"
                  TextChanged="HandleChangeText"
                  />
         <TextBox x:Name="PaperTitleBox"
@@ -77,16 +77,16 @@
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="648"
-                 Text="{Binding PaperTitle, Mode=TwoWay}"
+                 Text="{Binding AttendeeViewModel.PaperTitle, Mode=TwoWay}"
                  TextChanged="HandleChangeText"
-                 Visibility="{Binding Presenter, Converter={StaticResource BoolToHiddenConverter}}"
+                 Visibility="{Binding AttendeeViewModel.Presenter, Converter={StaticResource BoolToHiddenConverter}}"
                  />
 
         <CheckBox x:Name="PaidCheckBox"
                   Content="Paid"
                   HorizontalAlignment="Left"
                   Margin="400,192,0,0"
-                  IsChecked="{Binding Paid, Mode=TwoWay}"
+                  IsChecked="{Binding AttendeeViewModel.Paid, Mode=TwoWay}"
                   VerticalAlignment="Top"
                   />
         <CheckBox x:Name="PresenterCheckBox"
@@ -94,7 +94,7 @@
                   HorizontalAlignment="Left"
                   Margin="400,247,0,0"
                   VerticalAlignment="Top"
-                  IsChecked="{Binding Presenter, Mode=TwoWay}"
+                  IsChecked="{Binding AttendeeViewModel.Presenter, Mode=TwoWay}"
                   />
         
         <ComboBox x:Name="RegistrationDropdown"
@@ -102,8 +102,8 @@
                   Margin="400,137,0,0"
                   VerticalAlignment="Top"
                   Width="300"
-                  ItemsSource="{Binding RegistrationTypes}"
-                  SelectedItem="{Binding RegistrationType}"
+                  ItemsSource="{Binding AttendeeViewModel.RegistrationTypes}"
+                  SelectedItem="{Binding AttendeeViewModel.RegistrationType}"
                   />
         
         <Label x:Name="NameLabel"
@@ -153,7 +153,7 @@
                VerticalAlignment="Top"
                Width="289"
                FontSize="10.667"
-               Visibility="{Binding Presenter, Converter={StaticResource BoolToHiddenConverter}}"
+               Visibility="{Binding AttendeeViewModel.Presenter, Converter={StaticResource BoolToHiddenConverter}}"
                />
         <Label x:Name="RegistrationLabel"
                Content="Registration Type*"
@@ -177,6 +177,7 @@
                 Margin="150,365,0,0"
                 VerticalAlignment="Top"
                 Width="75"
+                Command="{Binding ClearViewCommand}"
                 />
         <Button x:Name="GetButton"
                 Content="Get"
