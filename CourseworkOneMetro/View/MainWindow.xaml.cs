@@ -24,12 +24,9 @@ namespace CourseworkOneMetro
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        private AttendeeModel viewAttendee = new AttendeeModel();
-        private Attendee savedAttendee = new Attendee();
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = viewAttendee;
         }
 
         private void HandleChangeText(object sender, TextChangedEventArgs e)
@@ -49,9 +46,6 @@ namespace CourseworkOneMetro
         //        {
         //        }
         //    }
-        }
-        private void SetButton_Click(object sender, RoutedEventArgs e)
-        {
         }
     }
 }

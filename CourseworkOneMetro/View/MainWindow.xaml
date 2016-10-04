@@ -12,7 +12,11 @@
         <viewModel:BoolToVisibilityConv
          x:Key="BoolToHiddenConverter"
          TrueValue="Visible" FalseValue="Hidden" />
+        <viewModel:RegistrationWindowViewModel
+         x:Key="RegistrationVM"
+         />
     </Controls:MetroWindow.Resources>
+   
 
 
     <Grid>
@@ -165,7 +169,7 @@
                 HorizontalAlignment="Left"
                 Margin="50,365,0,0"
                 VerticalAlignment="Top"
-                Width="75" Click="SetButton_Click"
+                Width="75"
                 />
         <Button x:Name="ClearButton"
                 Content="Clear"

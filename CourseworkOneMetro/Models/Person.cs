@@ -2,19 +2,19 @@
 {
     public class Person
     {
-        protected string name;
-        protected string surname;
+        protected string _name;
+        protected string _surname;
 
         public string Name
         {
-            get { return name; }
-            set { name = value; }
+            get { return _name; }
+            set { _name = value; }
         }
 
         public string Surname
         {
-            get { return surname; }
-            set { surname = value; }
+            get { return _surname; }
+            set { _surname = value; }
         }
 
         public bool ValidateNonEmptyField(string value)
