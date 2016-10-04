@@ -1,15 +1,50 @@
-﻿using System.ComponentModel;
-using System.Windows.Controls;
+﻿using System;
+using System.Collections;
+using System.ComponentModel;
 using CourseworkOneMetro.Model;
 
 namespace CourseworkOneMetro.Models
 {
-    public class AttendeeModel : Attendee, INotifyPropertyChanged
+    public class AttendeeModel : Attendee, INotifyPropertyChanged, ICloneable
     {
+
+        private ArrayList registrationTypes = new ArrayList();
+
+        public AttendeeModel()
+        {
+            this.Paid = false;
+            this.Presenter = false;
+            this.RegistrationType = "Student";
+            this.registrationTypes.Add("Student");
+            this.registrationTypes.Add("Full");
+            this.registrationTypes.Add("Organiser");
+        }
+
+        public AttendeeModel(Attendee baseAttendee) : this()
+        {
+            this.Paid = baseAttendee.Paid;
+            this.Presenter = baseAttendee.Presenter;
+            this.RegistrationType = baseAttendee.RegistrationType;
+            this.Name = baseAttendee.Name;
+            this.Surname = baseAttendee.Surname;
+            this.PaperTitle = this.Presenter 
+                ? baseAttendee.PaperTitle
+                : "";
+            this.AttendeeRef = baseAttendee.AttendeeRef;
+            this.ConferenceName = baseAttendee.ConferenceName;
+            this.InstitutionTitle = baseAttendee.InstitutionTitle;
+
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string prop)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
+
+        public object Clone()
+        {
+            return new AttendeeModel(this);
         }
 
         public new string Name
@@ -98,6 +133,16 @@ namespace CourseworkOneMetro.Models
             {
                 base.InstitutionTitle = value;
                 OnPropertyChanged("Institution");
+            }
+        }
+
+        public ArrayList RegistrationTypes
+        {
+            get { return registrationTypes; }
+            set
+            {
+                registrationTypes = value;
+                OnPropertyChanged("RegistrationTypes");
             }
         }
     }

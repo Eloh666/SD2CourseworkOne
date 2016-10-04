@@ -2,15 +2,16 @@
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-                      xmlns:model="clr-namespace:CourseworkOneMetro.Model"
-                      xmlns:models="clr-namespace:CourseworkOneMetro.Models"
-                      Title="MainWindow"
+                      xmlns:model="clr-namespace:CourseworkOneMetro.ViewModels"
+                      Title="Conference Registration Form"
                       ResizeMode="NoResize"
                       Height="450"
                       Width="750">
-    
+
     <Controls:MetroWindow.Resources>
-        <models:AttendeeModel x:Key="Attendee"/>
+        <model:BoolToVisibilityConv
+         x:Key="BoolToHiddenConverter"
+         TrueValue="Visible" FalseValue="Hidden" />
     </Controls:MetroWindow.Resources>
 
 
@@ -74,6 +75,7 @@
                  Width="648"
                  Text="{Binding PaperTitle, Mode=TwoWay}"
                  TextChanged="HandleChangeText"
+                 Visibility="{Binding Presenter, Converter={StaticResource BoolToHiddenConverter}}"
                  />
 
         <CheckBox x:Name="PaidCheckBox"
@@ -96,6 +98,8 @@
                   Margin="400,137,0,0"
                   VerticalAlignment="Top"
                   Width="300"
+                  ItemsSource="{Binding RegistrationTypes}"
+                  SelectedItem="{Binding RegistrationType}"
                   />
         
         <Label x:Name="NameLabel"
@@ -145,6 +149,7 @@
                VerticalAlignment="Top"
                Width="289"
                FontSize="10.667"
+               
                />
         <Label x:Name="RegistrationLabel"
                Content="Registration Type*"

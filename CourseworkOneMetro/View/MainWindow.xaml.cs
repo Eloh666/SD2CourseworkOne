@@ -24,7 +24,8 @@ namespace CourseworkOneMetro
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        private Attendee viewAttendee = new AttendeeModel();
+        private AttendeeModel viewAttendee = new AttendeeModel();
+        private Attendee savedAttendee = new Attendee();
         public MainWindow()
         {
             InitializeComponent();
@@ -51,10 +52,6 @@ namespace CourseworkOneMetro
         }
         private void SetButton_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Called");
-            Console.WriteLine(this.viewAttendee.Name);
-            Console.WriteLine(this.viewAttendee.Surname);
-            Console.WriteLine(this.viewAttendee.InstitutionTitle);
         }
     }
 }

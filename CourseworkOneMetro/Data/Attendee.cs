@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using System.Windows.Controls.Primitives;
+using CourseworkOneMetro.Models;
 
 namespace CourseworkOneMetro.Model
 {
@@ -12,10 +14,9 @@ namespace CourseworkOneMetro.Model
         public string PaperTitle { get; set; }
         public string InstitutionTitle { get; set; }
 
-
         public Attendee()
         {
-            this.Paid = true;
+            this.Paid = false;
             this.Presenter = false;
         }
 
