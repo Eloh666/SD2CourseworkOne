@@ -67,9 +67,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Data\Attendee.cs" />
-    <Compile Include="Data\Person.cs" />
-    <Compile Include="Models\AttendeeModel.cs" />
+    <Compile Include="Models\Attendee.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="ViewModels\AttendeeModel.cs" />
     <Compile Include="ViewModels\BooleanToVisibilityConv.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

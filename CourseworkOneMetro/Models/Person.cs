@@ -1,4 +1,4 @@
-﻿namespace CourseworkOneMetro.Model
+﻿namespace CourseworkOneMetro.Models
 {
     public class Person
     {

@@ -2,14 +2,14 @@
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-                      xmlns:model="clr-namespace:CourseworkOneMetro.ViewModels"
+                      xmlns:viewModel="clr-namespace:CourseworkOneMetro.ViewModels"
                       Title="Conference Registration Form"
                       ResizeMode="NoResize"
                       Height="450"
                       Width="750">
 
     <Controls:MetroWindow.Resources>
-        <model:BoolToVisibilityConv
+        <viewModel:BoolToVisibilityConv
          x:Key="BoolToHiddenConverter"
          TrueValue="Visible" FalseValue="Hidden" />
     </Controls:MetroWindow.Resources>
@@ -141,6 +141,7 @@
                VerticalAlignment="Top"
                Width="289"
                FontSize="10.667"
+               Visibility="{Binding Presenter, Converter={StaticResource BoolToHiddenConverter}}"
                />
         <Label x:Name="PaperLabel"
                Content="Paper Title"

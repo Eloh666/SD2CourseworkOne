@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.ComponentModel;
-using CourseworkOneMetro.Model;
+using CourseworkOneMetro.Models;
 
-namespace CourseworkOneMetro.Models
+namespace CourseworkOneMetro.ViewModels
 {
     public class AttendeeModel : Attendee, INotifyPropertyChanged, ICloneable
     {

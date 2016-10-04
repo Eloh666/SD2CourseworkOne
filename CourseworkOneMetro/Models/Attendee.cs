@@ -2,7 +2,7 @@
 using System.Windows.Controls.Primitives;
 using CourseworkOneMetro.Models;
 
-namespace CourseworkOneMetro.Model
+namespace CourseworkOneMetro.Models
 {
     public class Attendee : Person
     {

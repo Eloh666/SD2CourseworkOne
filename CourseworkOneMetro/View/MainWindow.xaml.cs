@@ -14,8 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using System.Text.RegularExpressions;
-using CourseworkOneMetro.Model;
 using CourseworkOneMetro.Models;
+using CourseworkOneMetro.ViewModels;
 
 namespace CourseworkOneMetro
 {
@@ -29,7 +29,7 @@ namespace CourseworkOneMetro
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = viewAttendee;
+            //this.DataContext = viewAttendee;
         }
 
         private void HandleChangeText(object sender, TextChangedEventArgs e)
