@@ -29,7 +29,7 @@ namespace CourseworkOneMetro
         public MainWindow()
         {
             InitializeComponent();
-            //this.DataContext = viewAttendee;
+            this.DataContext = viewAttendee;
         }
 
         private void HandleChangeText(object sender, TextChangedEventArgs e)

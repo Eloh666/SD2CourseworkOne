@@ -141,7 +141,6 @@
                VerticalAlignment="Top"
                Width="289"
                FontSize="10.667"
-               Visibility="{Binding Presenter, Converter={StaticResource BoolToHiddenConverter}}"
                />
         <Label x:Name="PaperLabel"
                Content="Paper Title"
@@ -150,7 +149,7 @@
                VerticalAlignment="Top"
                Width="289"
                FontSize="10.667"
-               
+               Visibility="{Binding Presenter, Converter={StaticResource BoolToHiddenConverter}}"
                />
         <Label x:Name="RegistrationLabel"
                Content="Registration Type*"
