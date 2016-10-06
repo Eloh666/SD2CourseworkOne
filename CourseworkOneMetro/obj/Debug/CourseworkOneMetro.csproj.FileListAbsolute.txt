@@ -35,3 +35,8 @@ C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\Cours
 C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\CourseworkOneMetro.csproj.GenerateResource.Cache
 C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\CourseworkOneMetro.exe
 C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\CourseworkOneMetro.pdb
+C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\CourseworkOneMetro.csprojResolveAssemblyReference.cache
+C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\View\CertificateWindow.g.cs
+C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\View\InvoiceWindow.g.cs
+C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\View\CertificateWindow.baml
+C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\View\InvoiceWindow.baml

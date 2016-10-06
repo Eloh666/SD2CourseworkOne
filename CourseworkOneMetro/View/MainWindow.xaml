@@ -170,6 +170,7 @@
                 Margin="50,365,0,0"
                 VerticalAlignment="Top"
                 Width="75"
+                Command="{Binding SaveCurrentAttendee}"
                 />
         <Button x:Name="ClearButton"
                 Content="Clear"
@@ -185,6 +186,7 @@
                 Margin="250,365,0,0"
                 VerticalAlignment="Top"
                 Width="75"
+                Command="{Binding LoadSavedAttendee}"
                 />
         <Button x:Name="Invoice"
                 Content="Invoice"

@@ -12,7 +12,7 @@ namespace CourseworkOneMetro.Models
         private string _conferenceName;
         private string _registrationType;
         private bool _paid;
-        private bool _presenter = true;
+        private bool _presenter;
         private string _paperTitle;
         private string _institutionTitle;
 
@@ -63,6 +63,21 @@ namespace CourseworkOneMetro.Models
             this.InstitutionTitle = "";
         }
 
+        public ushort GetCost()
+        {
+            switch (RegistrationType)
+            {
+                case "Student":
+                    return 300;
+                case "Full":
+                    return 500;
+                case "Organiser":
+                    // falls through
+                default:
+                    return 0;
+            }
+        }
+
         public uint AttendeeRef
         {
             get { return _attendeeRef; }
@@ -108,7 +123,6 @@ namespace CourseworkOneMetro.Models
         public ArrayList RegistrationTypes
         {
             get { return _registrationTypes; }
-            set { _registrationTypes = value; }
         }
 
 

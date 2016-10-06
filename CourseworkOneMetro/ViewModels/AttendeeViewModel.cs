@@ -2,116 +2,125 @@
 using System.Collections;
 using System.ComponentModel;
 using CourseworkOneMetro.Models;
+using CourseworkOneMetro.ViewModels.Utils;
 
 namespace CourseworkOneMetro.ViewModels
 {
-    public class AttendeeViewModel : Attendee, INotifyPropertyChanged
+    public class AttendeeViewModel : PropertyChangedNotifier
     {
-        // implements the INotifyPropertyChanged interface
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChangedEvent(string propertyName)
+        private Attendee _attendee;
+        public AttendeeViewModel()
         {
-            var handler = PropertyChanged;
-            handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+           _attendee =  new Attendee();
         }
-
         public void Clear()
         {
-            base.Clear();
+            this._attendee.Clear();
             OnPropertyChangedEvent(null);
         }
 
-        public object GetAttendeeSavedData()
+        public Attendee GetAttendeeSavedData()
         {
-            return base.Clone();
+            return (Attendee) _attendee.Clone();
         }
 
-        public new string Name
+        public void LoadSavedAttendee(Attendee savedAttendee)
         {
-            get { return base.Name; }
+            this._attendee = new Attendee(savedAttendee);
+            OnPropertyChangedEvent(null);
+        }
+
+        public string Name
+        {
+            get { return _attendee.Name; }
             set
             {
-                base.Name = value;
+                _attendee.Name = value;
                 OnPropertyChangedEvent("Name");
             }
         }
-        public new string Surname
+        public string Surname
         {
-            get { return base.Surname; }
+            get { return _attendee.Surname; }
             set
             {
-                base.Surname = value;
+                _attendee.Surname = value;
                 OnPropertyChangedEvent("Surname");
             }
         }
 
-        public new uint AttendeeRef
+        public uint AttendeeRef
         {
-            get { return base.AttendeeRef; }
+            get { return _attendee.AttendeeRef; }
             set
             {
-                base.AttendeeRef = value;
+                _attendee.AttendeeRef = value;
                 OnPropertyChangedEvent("AttendeeRef");
             }
         }
 
-        public new string ConferenceName
+        public string ConferenceName
         {
-            get { return base.ConferenceName; }
+            get { return _attendee.ConferenceName; }
             set
             {
-                base.ConferenceName = value;
+                _attendee.ConferenceName = value;
                 OnPropertyChangedEvent("ConferenceName");
             }
         }
 
-        public new string RegistrationType
+        public string RegistrationType
         {
-            get { return base.RegistrationType; }
+            get { return _attendee.RegistrationType; }
             set
             {
-                base.RegistrationType = value;
+                _attendee.RegistrationType = value;
                 OnPropertyChangedEvent("RegistrationType");
             }
         }
 
-        public new bool Paid
+        public ArrayList RegistrationTypes
         {
-            get { return base.Paid; }
+            get { return _attendee.RegistrationTypes; }
+
+        }
+
+        public bool Paid
+        {
+            get { return _attendee.Paid; }
             set
             {
-                base.Paid = value;
+                _attendee.Paid = value;
                 OnPropertyChangedEvent("Paid");
             }
         }
 
-        public new bool Presenter
+        public bool Presenter
         {
-            get { return base.Presenter; }
+            get { return _attendee.Presenter; }
             set
             {
-                base.Presenter = value;
+                _attendee.Presenter = value;
                 OnPropertyChangedEvent("Presenter");
             }
         }
 
-        public new string PaperTitle
+        public string PaperTitle
         {
-            get { return base.PaperTitle; }
+            get { return _attendee.PaperTitle; }
             set
             {
-                base.PaperTitle = value;
+                _attendee.PaperTitle = value;
                 OnPropertyChangedEvent("PaperTitle");
             }
         }
 
-        public new string InstitutionTitle
+        public string InstitutionTitle
         {
-            get { return base.InstitutionTitle; }
+            get { return _attendee.InstitutionTitle; }
             set
             {
-                base.InstitutionTitle = value;
+                _attendee.InstitutionTitle = value;
                 OnPropertyChangedEvent("Institution");
             }
         }
