@@ -17,9 +17,5 @@
             set { _surname = value; }
         }
 
-        public bool ValidateNonEmptyField(string value)
-        {
-            return value != "";
-        }
     }
 }

@@ -6,7 +6,10 @@
                       Title="Conference Registration Form"
                       ResizeMode="NoResize"
                       Height="450"
-                      Width="750">
+                      Width="750"
+                      xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                      Dialog:DialogParticipation.Register="{Binding}"
+                      >
 
     <Controls:MetroWindow.Resources>
         <viewModel:BoolToVisibilityConv
@@ -21,6 +24,8 @@
 
     <Grid>
         <TextBox x:Name="NameBox"
+                 Controls:TextBoxHelper.Watermark="Enter your first name here...."
+                 Controls:TextBoxHelper.ClearTextButton="True"
                  HorizontalAlignment="Left"
                  Height="20"
                  Margin="50,82,0,0"
@@ -28,9 +33,10 @@
                  VerticalAlignment="Top"
                  Width="300"
                  Text="{Binding AttendeeViewModel.Name, Mode=TwoWay}"
-                 TextChanged="HandleChangeText"
                  />
         <TextBox x:Name="SurnameBox"
+                 Controls:TextBoxHelper.Watermark="Enter your second name here...."
+                 Controls:TextBoxHelper.ClearTextButton="True"
                  HorizontalAlignment="Left"
                  Height="20"
                  Margin="400,82,0,0"
@@ -38,19 +44,23 @@
                  VerticalAlignment="Top"
                  Width="300"
                  Text="{Binding AttendeeViewModel.Surname, Mode=TwoWay}"
-                 TextChanged="HandleChangeText"
                  />
-        <TextBox x:Name="AttendeeBox"
-                 HorizontalAlignment="Left"
+        <Controls:NumericUpDown
+            x:Name="AttendeeBox"
+            HorizontalAlignment="Left"
                  Height="20"
                  Margin="50,137,0,0"
-                 TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="300"
-                 Text="{Binding AttendeeViewModel.AttendeeRef, Mode=TwoWay}"
-                 TextChanged="HandleChangeText"
-                 />
+                 HideUpDownButtons="True"
+                 Minimum="{Binding AttendeeViewModel.MinRefNumber}"
+                 Maximum="{Binding AttendeeViewModel.MaxRefNumber}"
+                 Value="{Binding AttendeeViewModel.AttendeeRef, Mode=TwoWay}"
+            />
+        
         <TextBox x:Name="InstitutionBox"
+                 Controls:TextBoxHelper.Watermark="Enter your Institution name here...."
+                 Controls:TextBoxHelper.ClearTextButton="True"
                  HorizontalAlignment="Left"
                  Height="20"
                  Margin="50,192,0,0"
@@ -58,9 +68,10 @@
                  VerticalAlignment="Top"
                  Width="300"
                  Text="{Binding AttendeeViewModel.InstitutionTitle, Mode=TwoWay }"
-                 TextChanged="HandleChangeText"
                  />
         <TextBox x:Name="ConferenceNameBox"
+                 Controls:TextBoxHelper.Watermark="Enter the conference name here...."
+                 Controls:TextBoxHelper.ClearTextButton="True"
                  HorizontalAlignment="Left"
                  Height="20"
                  Margin="50,247,0,0"
@@ -68,36 +79,38 @@
                  VerticalAlignment="Top"
                  Width="300"
                  Text="{Binding AttendeeViewModel.ConferenceName, Mode=TwoWay}"
-                 TextChanged="HandleChangeText"
                  />
         <TextBox x:Name="PaperTitleBox"
                  HorizontalAlignment="Left"
+                 Controls:TextBoxHelper.Watermark="Enter the paper title here...."
+                 Controls:TextBoxHelper.ClearTextButton="True"
                  Height="20"
                  Margin="50,302,0,0"
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="648"
                  Text="{Binding AttendeeViewModel.PaperTitle, Mode=TwoWay}"
-                 TextChanged="HandleChangeText"
                  Visibility="{Binding AttendeeViewModel.Presenter, Converter={StaticResource BoolToHiddenConverter}}"
                  />
 
-        <CheckBox x:Name="PaidCheckBox"
+        <Controls:ToggleSwitch x:Name="PaidCheckBox"
                   Content="Paid"
                   HorizontalAlignment="Left"
                   Margin="400,192,0,0"
+                  Width="170"
                   IsChecked="{Binding AttendeeViewModel.Paid, Mode=TwoWay}"
                   VerticalAlignment="Top"
                   />
-        <CheckBox x:Name="PresenterCheckBox"
+        <Controls:ToggleSwitch x:Name="PresenterCheckBox"
                   Content="Presenter"
                   HorizontalAlignment="Left"
                   Margin="400,247,0,0"
+                  Width="170"
                   VerticalAlignment="Top"
                   IsChecked="{Binding AttendeeViewModel.Presenter, Mode=TwoWay}"
                   />
-        
-        <ComboBox x:Name="RegistrationDropdown"
+
+        <ComboBox  x:Name="RegistrationDropdown"
                   HorizontalAlignment="Left"
                   Margin="400,137,0,0"
                   VerticalAlignment="Top"
@@ -171,7 +184,7 @@
                 VerticalAlignment="Top"
                 Width="75"
                 Command="{Binding SaveCurrentAttendee}"
-                />
+                CommandParameter=""/>
         <Button x:Name="ClearButton"
                 Content="Clear"
                 HorizontalAlignment="Left"
@@ -194,6 +207,7 @@
                 Margin="500,365,0,0"
                 VerticalAlignment="Top"
                 Width="75"
+                Command="{Binding ShowInvoiceDialog}"
                 />
         <Button x:Name="Certificate"
                 Content="Certificate"
@@ -201,6 +215,7 @@
                 Margin="600,365,0,0"
                 VerticalAlignment="Top"
                 Width="75"
+                Command="{Binding ShowCertificateDialog}"
                 />
         <Label x:Name="Label"
                Content="Conference Registration"

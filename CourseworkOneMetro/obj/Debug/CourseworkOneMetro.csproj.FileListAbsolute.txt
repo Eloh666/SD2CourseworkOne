@@ -40,3 +40,8 @@ C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\View\
 C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\View\InvoiceWindow.g.cs
 C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\View\CertificateWindow.baml
 C:\Users\elohi\Documents\GitHub\SD2Coursework\CourseworkOneMetro\obj\Debug\View\InvoiceWindow.baml
+C:\Users\Eloh\Documents\GitHub\SoftwareDevelopment2\Coursework1\CourseworkOneMetro\CourseworkOneMetro\bin\Debug\MahApps.Metro.pdb
+C:\Users\Eloh\Documents\GitHub\SoftwareDevelopment2\Coursework1\CourseworkOneMetro\CourseworkOneMetro\obj\Debug\View\InvoiceDialog.baml
+C:\Users\Eloh\Documents\GitHub\SoftwareDevelopment2\Coursework1\CourseworkOneMetro\CourseworkOneMetro\obj\Debug\View\InvoiceDialog.g.cs
+C:\Users\Eloh\Documents\GitHub\SoftwareDevelopment2\Coursework1\CourseworkOneMetro\CourseworkOneMetro\obj\Debug\View\CertificateDialog.baml
+C:\Users\Eloh\Documents\GitHub\SoftwareDevelopment2\Coursework1\CourseworkOneMetro\CourseworkOneMetro\obj\Debug\View\CertificateDialog.g.cs

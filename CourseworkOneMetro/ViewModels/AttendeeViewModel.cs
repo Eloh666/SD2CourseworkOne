@@ -79,12 +79,6 @@ namespace CourseworkOneMetro.ViewModels
             }
         }
 
-        public ArrayList RegistrationTypes
-        {
-            get { return _attendee.RegistrationTypes; }
-
-        }
-
         public bool Paid
         {
             get { return _attendee.Paid; }
@@ -123,6 +117,24 @@ namespace CourseworkOneMetro.ViewModels
                 _attendee.InstitutionTitle = value;
                 OnPropertyChangedEvent("Institution");
             }
+        }
+
+
+        public ArrayList RegistrationTypes
+        {
+            get { return _attendee.RegistrationTypes; }
+
+        }
+
+        public uint MinRefNumber
+        {
+            get { return _attendee.MinRefNumber; }
+
+        }
+        public uint MaxRefNumber
+        {
+            get { return _attendee.MaxRefNumber; }
+
         }
     }
 }

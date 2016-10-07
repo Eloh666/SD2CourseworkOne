@@ -1,0 +1,64 @@
+﻿<Controls:MetroWindow x:Class="CourseworkOneMetro.View.InvoiceDialog"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      Title="InvoiceDialog"
+                      Height="350"
+                      Width="525"
+                      >
+
+    <Grid>
+        <Image x:Name="EdNapLogo"
+               HorizontalAlignment="Left"
+               Height="112" Margin="10,10,0,0"
+               VerticalAlignment="Top"
+               Width="277"
+               Source="../Resources/Images/EdNapLog.jpg"
+               />
+        <Label x:Name="NapAddressLabel"
+               Content="219 Colinton Rd,&#xD;&#xA; Edinburgh&#xD;&#xA; EH14 1DJ"
+               HorizontalAlignment="Left"
+               Margin="381,20,0,0"
+               VerticalAlignment="Top"
+               FontSize="13"
+               />
+        <Label x:Name="IssueDateLabel"
+               HorizontalAlignment="Left"
+               Margin="10,122,0,0"
+               VerticalAlignment="Top"
+               Width="185"
+               />
+        <Label x:Name="NameLabel"
+               HorizontalAlignment="Left"
+               Margin="322,122,0,0"
+               VerticalAlignment="Top"
+               Width="185"
+               />
+        <Label x:Name="InstitutionLabel"
+               HorizontalAlignment="Left"
+               Margin="322,148,0,0"
+               VerticalAlignment="Top"
+               Width="185"/>
+        <Label x:Name="ConferenceName"
+               HorizontalAlignment="Left"
+               Margin="45,216,0,0"
+               VerticalAlignment="Top"
+               Width="185"
+               />
+        <Label x:Name="TotalDueLabel"
+               HorizontalAlignment="Left"
+               Margin="301,216,0,0"
+               VerticalAlignment="Top"
+               Width="185"
+               />
+        <Button x:Name="button"
+                Content="Button"
+                HorizontalAlignment="Center"
+                Margin="170,285,160,0"
+                VerticalAlignment="Top"
+                Width="189"
+                />
+
+
+    </Grid>
+</Controls:MetroWindow>

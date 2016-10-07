@@ -14,13 +14,17 @@ namespace CourseworkOneMetro.Models
         private bool _paid;
         private bool _presenter;
         private string _paperTitle;
-        private string _institutionTitle;
+        private Instutution _institution;
+        private const uint _minRefNum = 40000;
+        private const uint _maxRefNum = 60000;
+
 
         private ArrayList _registrationTypes = new ArrayList();
 
         // zero parameters constructor, initialises the type of registrations only
         public Attendee()
         {
+            this._institution = new Instutution();
             this.RegistrationType = "Student";
             this._registrationTypes.Add("Student");
             this._registrationTypes.Add("Full");
@@ -116,8 +120,13 @@ namespace CourseworkOneMetro.Models
 
         public string InstitutionTitle
         {
-            get { return _institutionTitle; }
-            set { _institutionTitle = value; }
+            get { return this._institution.InstututionTitle; }
+            set { this._institution.InstututionTitle = value; }
+        }
+        public string InstitutionAddress
+        {
+            get { return this._institution.InstitutionAddress; }
+            set { this._institution.InstitutionAddress = value; }
         }
 
         public ArrayList RegistrationTypes
@@ -125,13 +134,17 @@ namespace CourseworkOneMetro.Models
             get { return _registrationTypes; }
         }
 
-
-        // validation for the institution field
-        public bool ValidateInstitution(string value)
+        public uint MaxRefNumber
         {
-            return true;
-            // TODO change it according to specs
+            get { return _maxRefNum; }
         }
+
+        public uint MinRefNumber
+        {
+            get { return _minRefNum; }
+        }
+
+
 
         // validation for the attendee reference number
         public bool ValidateAttendeeRef(string value)

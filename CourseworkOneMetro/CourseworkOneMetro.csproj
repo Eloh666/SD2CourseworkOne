@@ -34,13 +34,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MahApps.Metro">
-      <HintPath>..\packages\MahApps.Metro.0.14.0.0\lib\net45\MahApps.Metro.dll</HintPath>
+    <Reference Include="MahApps.Metro, Version=1.3.0.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.0.14.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,11 +61,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\CertificateWindow.xaml">
+    <Page Include="View\CertificateDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\InvoiceWindow.xaml">
+    <Page Include="View\InvoiceDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -76,17 +78,21 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Attendee.cs" />
+    <Compile Include="Models\Instutution.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Utils\StringValidator.cs" />
+    <Compile Include="ViewModels\CertificateViewModel.cs" />
+    <Compile Include="ViewModels\InvoiceViewModel.cs" />
     <Compile Include="ViewModels\RegistrationWindowViewModel.cs" />
     <Compile Include="ViewModels\Utils\BooleanToVisibilityConv.cs" />
     <Compile Include="ViewModels\AttendeeViewModel.cs" />
     <Compile Include="ViewModels\Utils\ICommandDelegate.cs" />
     <Compile Include="ViewModels\Utils\PropertyChangedNotifier.cs" />
-    <Compile Include="View\CertificateWindow.xaml.cs">
-      <DependentUpon>CertificateWindow.xaml</DependentUpon>
+    <Compile Include="View\CertificateDialog.xaml.cs">
+      <DependentUpon>CertificateDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\InvoiceWindow.xaml.cs">
-      <DependentUpon>InvoiceWindow.xaml</DependentUpon>
+    <Compile Include="View\InvoiceDialog.xaml.cs">
+      <DependentUpon>InvoiceDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -122,7 +128,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\Commands\" />
+    <Resource Include="Resources\Images\EdNapLogBMP.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\EdNapLog.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
