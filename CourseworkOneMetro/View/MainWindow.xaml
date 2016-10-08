@@ -183,7 +183,7 @@
                 Margin="50,365,0,0"
                 VerticalAlignment="Top"
                 Width="75"
-                Command="{Binding SaveCurrentAttendee}"
+                Command="{Binding SaveAttendeeCommand}"
                 CommandParameter=""/>
         <Button x:Name="ClearButton"
                 Content="Clear"
@@ -191,7 +191,7 @@
                 Margin="150,365,0,0"
                 VerticalAlignment="Top"
                 Width="75"
-                Command="{Binding ClearViewCommand}"
+                Command="{Binding ClearFieldsCommand}"
                 />
         <Button x:Name="GetButton"
                 Content="Get"
@@ -199,7 +199,7 @@
                 Margin="250,365,0,0"
                 VerticalAlignment="Top"
                 Width="75"
-                Command="{Binding LoadSavedAttendee}"
+                Command="{Binding LoadAttendeeCommand}"
                 />
         <Button x:Name="Invoice"
                 Content="Invoice"
@@ -207,7 +207,7 @@
                 Margin="500,365,0,0"
                 VerticalAlignment="Top"
                 Width="75"
-                Command="{Binding ShowInvoiceDialog}"
+                Command="{Binding ShowInvoiceCommand}"
                 />
         <Button x:Name="Certificate"
                 Content="Certificate"
@@ -215,7 +215,7 @@
                 Margin="600,365,0,0"
                 VerticalAlignment="Top"
                 Width="75"
-                Command="{Binding ShowCertificateDialog}"
+                Command="{Binding ShowCerrtificateCommand}"
                 />
         <Label x:Name="Label"
                Content="Conference Registration"

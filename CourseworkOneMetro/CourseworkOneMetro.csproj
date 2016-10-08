@@ -87,7 +87,7 @@
     <Compile Include="ViewModels\RegistrationWindowViewModel.cs" />
     <Compile Include="ViewModels\Utils\BooleanToVisibilityConv.cs" />
     <Compile Include="ViewModels\AttendeeViewModel.cs" />
-    <Compile Include="ViewModels\Utils\ICommandDelegate.cs" />
+    <Compile Include="ViewModels\Utils\LightRelayCommand.cs" />
     <Compile Include="ViewModels\Utils\PropertyChangedNotifier.cs" />
     <Compile Include="ViewModels\Utils\RelayCommand.cs" />
     <Compile Include="View\CertificateDialog.xaml.cs">

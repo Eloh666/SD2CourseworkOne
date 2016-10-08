@@ -9,7 +9,6 @@ namespace CourseworkOneMetro.ViewModels.Utils
         readonly Action<T> _actionToExecute = null;
         readonly Predicate<T> _canExecute = null;
 
-
         // If can "canExecute" is not provided in the constructor, canExecute will return true by default
         public RelayCommand(Action<T> execute) : this(execute, null) {}
 
