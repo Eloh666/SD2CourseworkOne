@@ -8,16 +8,24 @@ using CourseworkOneMetro.ViewModels.Utils;
 using MahApps.Metro.Controls.Dialogs;
 
 
+// view model for the main windopw
 namespace CourseworkOneMetro.ViewModels
-{
+{   
+    /*
+    * extends the PropertyChangedNotifier class which implements INotifyPropertyChanged interface
+    * extending an implementation of the interface instead of implementing said interface everytime
+    * saves some repetition and keeps the code a bit more DRY when possible
+    */
     public class RegistrationWindowViewModel : PropertyChangedNotifier
     {
         private AttendeeViewModel _attendeeViewModel;
         private Attendee _savedAttendee;
         private readonly IDialogCoordinator _dialogCoordinator;
+        private CertificateViewModel _certificateViewModel;
 
         delegate void basicDelegate();
 
+        // zero args constructors, creates an attendeeViewmodel and initialises the metro dialog coordinator
         public RegistrationWindowViewModel()
         {
             this._dialogCoordinator = DialogCoordinator.Instance;
@@ -28,33 +36,65 @@ namespace CourseworkOneMetro.ViewModels
 
         public AttendeeViewModel AttendeeViewModel
         {
-            get { return _attendeeViewModel; }
+            get { return this._attendeeViewModel; }
         }
 
+        // handles saving an attendee
         public ICommand SaveCurrentAttendee
         {
-            get { return new ICommandDelegate(() => this._savedAttendee = this._attendeeViewModel.GetAttendeeSavedData()); }
+            get { return new ICommandDelegate(() =>
+            {
+                if (this._attendeeViewModel.IsAttendeeValid)
+                {
+                    if (!this._attendeeViewModel.Presenter)
+                    {
+                        this._attendeeViewModel.PaperTitle = "";
+                    }
+                    this._savedAttendee = this._attendeeViewModel.GetAttendeeSavedData();
+                    _dialogCoordinator.ShowMessageAsync(this, "Saved",
+                            "Your details have been saved.");
+                }
+                else
+                {
+                    _dialogCoordinator.ShowMessageAsync(this, "Form is invalid",
+                            "Some of the details you have entered are missing or invalid. Please amend them before proceeding.");
+                    OnPropertyChangedEvent(null);
+                }
+            }); }
         }
 
+        // handles clearing the various fields of the form
         public ICommand ClearViewCommand
         {
             get { return new ICommandDelegate(() => _attendeeViewModel.Clear()); }
         }
 
+        // handles showing an invoice
         public ICommand ShowInvoiceDialog
         {
             get
             {
                 basicDelegate showInvoice = () =>
                 {
-                    InvoiceDialog invoiceDialog = new InvoiceDialog();
-                    invoiceDialog.ShowDialog();
+                    if (!this._attendeeViewModel.IsAttendeeValid)
+                    {
+                        _dialogCoordinator.ShowMessageAsync(this, "Form is invalid",
+                            "Some of the details you have entered are missing or invalid. Please amend them before proceeding.");
+                        OnPropertyChangedEvent(null);
+                    }
+                    else
+                    {
+                        InvoiceDialog invoiceDialog = new InvoiceDialog();
+                        invoiceDialog.DataContext = new InvoiceViewModel(this._attendeeViewModel.GetAttendeeSavedData());
+                        invoiceDialog.ShowDialog();
+                    }
                 };
 
                 return new ICommandDelegate(() => showInvoice());
             }
         }
-
+        
+        // handles showing the certificate
         public ICommand ShowCertificateDialog
         {
             get
@@ -67,6 +107,7 @@ namespace CourseworkOneMetro.ViewModels
             }
         }
 
+        // handles loading a saved attendee
         public ICommand LoadSavedAttendee
         {
             get

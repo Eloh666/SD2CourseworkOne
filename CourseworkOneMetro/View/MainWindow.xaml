@@ -32,7 +32,7 @@
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="300"
-                 Text="{Binding AttendeeViewModel.Name, Mode=TwoWay}"
+                 Text="{Binding AttendeeViewModel.Name, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  />
         <TextBox x:Name="SurnameBox"
                  Controls:TextBoxHelper.Watermark="Enter your second name here...."
@@ -43,7 +43,7 @@
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="300"
-                 Text="{Binding AttendeeViewModel.Surname, Mode=TwoWay}"
+                 Text="{Binding AttendeeViewModel.Surname, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  />
         <Controls:NumericUpDown
             x:Name="AttendeeBox"
@@ -67,7 +67,7 @@
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="300"
-                 Text="{Binding AttendeeViewModel.InstitutionTitle, Mode=TwoWay }"
+                 Text="{Binding AttendeeViewModel.InstitutionTitle, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged }"
                  />
         <TextBox x:Name="ConferenceNameBox"
                  Controls:TextBoxHelper.Watermark="Enter the conference name here...."
@@ -78,7 +78,7 @@
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="300"
-                 Text="{Binding AttendeeViewModel.ConferenceName, Mode=TwoWay}"
+                 Text="{Binding AttendeeViewModel.ConferenceName, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged }"
                  />
         <TextBox x:Name="PaperTitleBox"
                  HorizontalAlignment="Left"
@@ -89,7 +89,7 @@
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="648"
-                 Text="{Binding AttendeeViewModel.PaperTitle, Mode=TwoWay}"
+                 Text="{Binding AttendeeViewModel.PaperTitle, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  Visibility="{Binding AttendeeViewModel.Presenter, Converter={StaticResource BoolToHiddenConverter}}"
                  />
 

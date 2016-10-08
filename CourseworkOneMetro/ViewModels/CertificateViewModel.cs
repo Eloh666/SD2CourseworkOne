@@ -1,6 +1,8 @@
 ﻿using CourseworkOneMetro.Models;
 using CourseworkOneMetro.ViewModels.Utils;
 
+
+// view model for the certificate window
 namespace CourseworkOneMetro.ViewModels
 {
     public class CertificateViewModel : PropertyChangedNotifier

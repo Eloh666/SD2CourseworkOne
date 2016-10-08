@@ -80,7 +80,6 @@
     <Compile Include="Models\Attendee.cs" />
     <Compile Include="Models\Instutution.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\Utils\StringValidator.cs" />
     <Compile Include="ViewModels\CertificateViewModel.cs" />
     <Compile Include="ViewModels\InvoiceViewModel.cs" />
     <Compile Include="ViewModels\RegistrationWindowViewModel.cs" />
@@ -126,9 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Images\EdNapLogBMP.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\EdNapLog.jpg" />

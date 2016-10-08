@@ -1,4 +1,6 @@
-﻿namespace CourseworkOneMetro.Models
+﻿using System;
+
+namespace CourseworkOneMetro.Models
 {
     public class Person
     {
@@ -8,7 +10,10 @@
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set
+            {
+                _name = value;
+            }
         }
 
         public string Surname
