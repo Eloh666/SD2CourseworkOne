@@ -1,20 +1,23 @@
-﻿namespace CourseworkOneMetro.Models
+﻿using System;
+using CourseworkOneMetro.Models.EmptyStringValidation;
+
+namespace CourseworkOneMetro.Models
 {
     public class Instutution
     {
-        private string _instututionName;
-        private string _instututionAddress;
+        public string InstitutionTitle { get; set; }
 
-        public string InstututionTitle
+        public string InstitutionAddress { get; set; }
+
+        public string ValidateInstitutionTitle()
         {
-            get { return _instututionName; }
-            set { _instututionName = value; }
+            return ValidationUtilities.ValidateNonEmpty("InstitutionTitle", this.InstitutionTitle);
         }
 
-        public string InstitutionAddress
+        public string ValidateInstitutionAddress()
         {
-            get { return _instututionAddress; }
-            set { _instututionAddress = value; }
+            return ValidationUtilities.ValidateNonEmpty("InstitutionAddress", this.InstitutionAddress);
         }
+
     }
 }

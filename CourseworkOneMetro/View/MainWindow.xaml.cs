@@ -19,34 +19,12 @@ using CourseworkOneMetro.ViewModels;
 
 namespace CourseworkOneMetro
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : MetroWindow
     {
         public MainWindow()
         {
             InitializeComponent();
             
-        }
-
-        private void HandleChangeText(object sender, TextChangedEventArgs e)
-        {
-        //    TextBox eventSender = ((TextBox)sender);
-        //    string name = eventSender.Name;
-        //    string text = eventSender.Text;
-        //    bool isValid = InputValidator.Validator.ValidateInput(name, text);
-        //    if (isValid)
-        //    {
-        //        eventSender.BorderBrush = System.Windows.Media.Brushes.Green;
-        //    }
-        //    else
-        //    {
-        //        eventSender.BorderBrush = System.Windows.Media.Brushes.Red;
-        //        if(text == "")
-        //        {
-        //        }
-        //    }
         }
     }
 }

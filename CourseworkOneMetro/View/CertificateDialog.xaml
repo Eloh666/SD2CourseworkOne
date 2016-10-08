@@ -4,20 +4,31 @@
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:viewModel="clr-namespace:CourseworkOneMetro.ViewModels"
                       Title="CertificateDialog"
-                      Height="350"
-                      Width="525">
-
-    <Controls:MetroWindow.Resources>
-        <viewModel:BoolToVisibilityConv
-         x:Key="BoolToHiddenConverter"
-         TrueValue="Visible" FalseValue="Hidden" />
-    </Controls:MetroWindow.Resources>
-    <Controls:MetroWindow.DataContext>
-        <viewModel:RegistrationWindowViewModel/>
-    </Controls:MetroWindow.DataContext>
+                      Height="400"
+                      Width="520">
 
     <Grid>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="45,42,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-
+        <Image x:Name="EdNapLogo"
+               HorizontalAlignment="Left"
+               Height="125" Margin="60,10,0,0"
+               VerticalAlignment="Top"
+               Width="440"
+               Source="../Resources/Images/EdNapLog.jpg"
+               />
+        <TextBlock x:Name="CertificateLabel" 
+               Text="{Binding CertificateLabel}"
+               HorizontalAlignment="Left" 
+               Margin="60,170,0,0"
+               VerticalAlignment="Top"
+               Height="134"
+               Width="400" FontFamily="Script MT Bold" FontSize="18.667"
+               TextWrapping="Wrap"
+               />
+        <Button x:Name="CloseButton"
+                Content="Close"
+                HorizontalAlignment="Left"
+                Margin="200,334,0,0"
+                VerticalAlignment="Top"
+                Width="120"/>
     </Grid>
 </Controls:MetroWindow>

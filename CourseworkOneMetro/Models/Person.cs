@@ -1,26 +1,21 @@
 ﻿using System;
+using CourseworkOneMetro.Models.EmptyStringValidation;
 
 namespace CourseworkOneMetro.Models
 {
     public class Person
     {
-        protected string _name;
-        protected string _surname;
+        public string Name { get; set; }
+        public string Surname { get; set; }
 
-        public string Name
+        public string ValidateName()
         {
-            get { return _name; }
-            set
-            {
-                _name = value;
-            }
+            return ValidationUtilities.ValidateNonEmpty("Name", this.Name);
         }
 
-        public string Surname
+        public string ValidateSurname()
         {
-            get { return _surname; }
-            set { _surname = value; }
+            return ValidationUtilities.ValidateNonEmpty("Surname", this.Surname);
         }
-
     }
 }

@@ -39,6 +39,13 @@ namespace CourseworkOneMetro.ViewModels
             get { return this._attendeeViewModel; }
         }
 
+        private void FormInvalidWarning()
+        {
+            _dialogCoordinator.ShowMessageAsync(this, "Form is invalid",
+                            "Some of the details you have entered are missing or invalid. Please amend them before proceeding.");
+            OnPropertyChangedEvent(null);
+        }
+
         // handles saving an attendee
         public ICommand SaveCurrentAttendee
         {
@@ -46,19 +53,13 @@ namespace CourseworkOneMetro.ViewModels
             {
                 if (this._attendeeViewModel.IsAttendeeValid)
                 {
-                    if (!this._attendeeViewModel.Presenter)
-                    {
-                        this._attendeeViewModel.PaperTitle = "";
-                    }
                     this._savedAttendee = this._attendeeViewModel.GetAttendeeSavedData();
                     _dialogCoordinator.ShowMessageAsync(this, "Saved",
                             "Your details have been saved.");
                 }
                 else
                 {
-                    _dialogCoordinator.ShowMessageAsync(this, "Form is invalid",
-                            "Some of the details you have entered are missing or invalid. Please amend them before proceeding.");
-                    OnPropertyChangedEvent(null);
+                    this.FormInvalidWarning();
                 }
             }); }
         }
@@ -78,9 +79,7 @@ namespace CourseworkOneMetro.ViewModels
                 {
                     if (!this._attendeeViewModel.IsAttendeeValid)
                     {
-                        _dialogCoordinator.ShowMessageAsync(this, "Form is invalid",
-                            "Some of the details you have entered are missing or invalid. Please amend them before proceeding.");
-                        OnPropertyChangedEvent(null);
+                        this.FormInvalidWarning();
                     }
                     else
                     {
@@ -99,11 +98,21 @@ namespace CourseworkOneMetro.ViewModels
         {
             get
             {
-                return new ICommandDelegate(() =>
+                basicDelegate showCertificate = () =>
                 {
-                    CertificateDialog certificateDialog = new CertificateDialog();
-                    certificateDialog.ShowDialog();
-                });
+                    if (!this._attendeeViewModel.IsAttendeeValid)
+                    {
+                        this.FormInvalidWarning();
+                    }
+                    else
+                    {
+                        CertificateDialog certificateDialog = new CertificateDialog();
+                        certificateDialog.DataContext = new CertificateViewModel(this._attendeeViewModel.GetAttendeeSavedData());
+                        certificateDialog.ShowDialog();
+                    }
+                };
+
+                return new ICommandDelegate(() => showCertificate());
             }
         }
 

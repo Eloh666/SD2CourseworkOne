@@ -58,7 +58,7 @@
                Width="90"
                Content="{Binding TotalDue}"
                />
-        <Button x:Name="button"
+        <Button x:Name="CloseButton"
                 Content="Close"
                 HorizontalAlignment="Center"
                 Margin="169,283,159,0"

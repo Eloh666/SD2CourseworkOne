@@ -20,7 +20,7 @@ namespace CourseworkOneMetro.ViewModels.Utils
 
         public void Execute(object parameter)
         {
-            _actionToExecute();
+            _actionToExecute(parameter);
         }
 
         public event EventHandler CanExecuteChanged;

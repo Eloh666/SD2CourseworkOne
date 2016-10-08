@@ -171,7 +171,6 @@ namespace CourseworkOneMetro.ViewModels
         {
             get
             {
-                Console.WriteLine(fieldName);
                 return GetValidationError(fieldName);
             }
         }
@@ -212,75 +211,29 @@ namespace CourseworkOneMetro.ViewModels
         private string GetValidationError(String fieldName)
         {
             string error = null;
-            switch (fieldName)
+            if (this._fieldsUseDictionary[fieldName])
             {
-                case "Name":
-                    error = ValidateNonEmpty(fieldName);
-                    break;
-                case "Surname":
-                    error = ValidateNonEmpty(fieldName);
-                    break;
-                case "ConferenceName":
-                    error = ValidateNonEmpty(fieldName);
-                    break;
-                case "PaperTitle":
-                    error = ValidatePaperTitle();
-                    break;
-                case "InstitutionTitle":
-                    error = ValidateInstitution();
-                    break;
+                switch (fieldName)
+                {
+                    case "Name":
+                        error = this._attendee.ValidateName();
+                        break;
+                    case "Surname":
+                        error = this._attendee.ValidateSurname();
+                        break;
+                    case "ConferenceName":
+                        error = this._attendee.ValidateConferenceName();
+                        break;
+                    case "PaperTitle":
+                        error = this._attendee.ValidatePaperTitle();
+                        break;
+                    case "InstitutionTitle":
+                        error = this._attendee.ValidateInstitutionTitle();
+                        break;
+                }
             }
-
             return error;
         }
 
-        private string ValidateNonEmpty(string field)
-        {
-            string property = null;
-            switch (field)
-            {
-                case "Name":
-                    property = this._attendee.Name;
-                    break;
-                case "Surname":
-                    property = this._attendee.Surname;
-                    break;
-                case "ConferenceName":
-                    property = this._attendee.ConferenceName;
-                    break;
-            }
-            if (String.IsNullOrWhiteSpace(property) && this._fieldsUseDictionary[field])
-            {
-                return field + " cannot be blank";
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        private string ValidatePaperTitle()
-        {
-            if (String.IsNullOrWhiteSpace(this._attendee.PaperTitle) && this._attendee.Presenter && this._fieldsUseDictionary["PaperTitle"])
-            {
-                return "Paper title cannot be blank";
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        private string ValidateInstitution()
-        {
-            if (String.IsNullOrWhiteSpace(this._attendee.InstitutionTitle) && this._fieldsUseDictionary["InstitutionTitle"])
-            {
-                return "Institution cannot be blank";
-            }
-            else
-            {
-                return null;
-            }
-        }
     }
 }

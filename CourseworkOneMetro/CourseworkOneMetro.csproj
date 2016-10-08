@@ -78,6 +78,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Attendee.cs" />
+    <Compile Include="Models\Utils\ValidationUtilities.cs" />
     <Compile Include="Models\Instutution.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="ViewModels\CertificateViewModel.cs" />

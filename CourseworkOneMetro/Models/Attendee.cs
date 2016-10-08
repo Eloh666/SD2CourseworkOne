@@ -1,34 +1,34 @@
 ﻿using System;
 using System.Collections;
 using System.ComponentModel;
+using CourseworkOneMetro.Models.EmptyStringValidation;
 
 namespace CourseworkOneMetro.Models
 {
     // attende model, extends Person and implements the ICloneable interface
     public class Attendee : Person, ICloneable
     {
+        // needs capital letter
+        private const uint Minrefnum = 40000;
+        private const uint Maxrefnum = 60000;
 
-        private uint _attendeeRef;
-        private string _conferenceName;
-        private string _registrationType;
-        private bool _paid;
         private bool _presenter;
-        private string _paperTitle;
-        private Instutution _institution;
-        private const uint _minRefNum = 40000;
-        private const uint _maxRefNum = 60000;
+        private readonly Instutution _institution; 
 
-
-        private ArrayList _registrationTypes = new ArrayList();
+        public uint AttendeeRef { get; set; }
+        public string ConferenceName { get; set; }
+        public string RegistrationType { get; set; }
+        public bool Paid { get; set; }
+        public string PaperTitle { get; set; }
 
         // zero parameters constructor, initialises the type of registrations only
         public Attendee()
         {
             this._institution = new Instutution();
             this.RegistrationType = "Student";
-            this._registrationTypes.Add("Student");
-            this._registrationTypes.Add("Full");
-            this._registrationTypes.Add("Organiser");
+            this.RegistrationTypes.Add("Student");
+            this.RegistrationTypes.Add("Full");
+            this.RegistrationTypes.Add("Organiser");
         }
 
         // creates an attendee from another attendee
@@ -45,6 +45,19 @@ namespace CourseworkOneMetro.Models
             this.AttendeeRef = oldAttendee.AttendeeRef;
             this.ConferenceName = oldAttendee.ConferenceName;
             this.InstitutionTitle = oldAttendee.InstitutionTitle;
+        }
+
+        public uint MaxRefNumber => Minrefnum;
+        public uint MinRefNumber => Maxrefnum;
+
+        public bool Presenter
+        {
+            get { return _presenter; }
+            set
+            {
+                this.PaperTitle = value ? this.PaperTitle : null;
+                _presenter = value;
+            }
         }
 
         // implements the ICloneable interface, simply clones the object
@@ -82,46 +95,10 @@ namespace CourseworkOneMetro.Models
             }
         }
 
-        public uint AttendeeRef
-        {
-            get { return _attendeeRef; }
-            set { _attendeeRef = value; }
-        }
-
-        public string ConferenceName
-        {
-            get { return _conferenceName; }
-            set { _conferenceName = value; }
-        }
-
-        public string RegistrationType
-        {
-            get { return _registrationType; }
-            set { _registrationType = value; }
-        }
-
-        public bool Paid
-        {
-            get { return _paid; }
-            set { _paid = value; }
-        }
-
-        public bool Presenter
-        {
-            get { return _presenter; }
-            set { _presenter = value; }
-        }
-
-        public string PaperTitle
-        {
-            get { return _paperTitle; }
-            set { _paperTitle = value; }
-        }
-
         public string InstitutionTitle
         {
-            get { return this._institution.InstututionTitle; }
-            set { this._institution.InstututionTitle = value; }
+            get { return this._institution.InstitutionTitle; }
+            set { this._institution.InstitutionTitle = value; }
         }
         public string InstitutionAddress
         {
@@ -129,47 +106,47 @@ namespace CourseworkOneMetro.Models
             set { this._institution.InstitutionAddress = value; }
         }
 
-        public ArrayList RegistrationTypes
+        public ArrayList RegistrationTypes { get; } = new ArrayList();
+
+        public string ValidatePaperTitle()
         {
-            get { return _registrationTypes; }
+            if (!this.Presenter && this.PaperTitle == null)
+            {
+                return null;
+            }
+            else
+            {
+                return ValidationUtilities.ValidateNonEmpty("Paper Title", this.PaperTitle);
+            }
         }
 
-        public uint MaxRefNumber
+        public string ValidateConferenceName()
         {
-            get { return _maxRefNum; }
+            return ValidationUtilities.ValidateNonEmpty("Conference Name", this.ConferenceName);
         }
-
-        public uint MinRefNumber
-        {
-            get { return _minRefNum; }
-        }
-
-
 
         // validation for the attendee reference number
-        public bool ValidateAttendeeRef(string value)
+        public string ValidateAttendeeRef()
         {
-            try
+            if (this.AttendeeRef >= 40000 && this.AttendeeRef <= 60000)
             {
-                uint parsedValue = uint.Parse(value);
-                return (parsedValue >= 40000 && parsedValue <= 60000);
+                return null;
             }
-            catch
+            else
             {
-                return false;
+                return
+                    "The attendee reference number is invalid. The reference nuber interval is between 40000 and 60000";
             }
         }
 
-        // validation for the attendee paper title
-        public bool ValidatePaperTitle(string value)
+        public string ValidateInstitutionTitle()
         {
-            return !this.Presenter || (value != "");
+            return this._institution.ValidateInstitutionTitle();
         }
 
-        // validation/test for the registration type
-        public bool ValidateRegistration(string value)
+        public string ValidateInstitutionAddress()
         {
-            return value == "Full" || value == "Student" || value == "Organiser";
+            return this._institution.ValidateInstitutionAddress();
         }
     }
 }
