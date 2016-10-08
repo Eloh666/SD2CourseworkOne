@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using CourseworkOneMetro.Models;
+using CourseworkOneMetro.ViewModels.Commands;
 using CourseworkOneMetro.ViewModels.Utils;
 
 
@@ -10,6 +12,7 @@ namespace CourseworkOneMetro.ViewModels
     public class InvoiceViewModel : PropertyChangedNotifier
     {
         private readonly Attendee _currentAttendee;
+        public RelayCommand<Window> CloseWindowCommand { get; private set; }
 
         public string CurrentDate { get; }
 
@@ -31,7 +34,7 @@ namespace CourseworkOneMetro.ViewModels
             this.TotalDue = "£" + this._currentAttendee.GetCost();
             this.Institution = this._currentAttendee.InstitutionTitle;
             this.CurrentDate = "Released on date: " + DateTime.Now;
-            OnPropertyChangedEvent(null);
+            this.CloseWindowCommand = new CloseWindowCommand().CloseWindow;
         }
 
     }

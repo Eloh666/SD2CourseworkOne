@@ -1,6 +1,6 @@
 ﻿using System.Windows;
-using System.Windows.Input;
 using CourseworkOneMetro.Models;
+using CourseworkOneMetro.ViewModels.Commands;
 using CourseworkOneMetro.ViewModels.Utils;
 
 
@@ -12,6 +12,7 @@ namespace CourseworkOneMetro.ViewModels
     {
         private readonly Attendee _currentAttendee;
         public string CertificateLabel { get; set; }
+        public RelayCommand<Window> CloseWindowCommand { get; private set; }
 
         public CertificateViewModel(Attendee currentAttendee)
         {
@@ -25,14 +26,11 @@ namespace CourseworkOneMetro.ViewModels
                                     (!this._currentAttendee.Presenter
                                         ? "."
                                         : " and presented a paper entitled " + this._currentAttendee.PaperTitle);
+            this.CloseWindowCommand = new CloseWindowCommand().CloseWindow;
         }
 
-        private void CloseWindow(Window window) => window.Close();
 
-        //public ICommand SaveCurrentAttendee
-        //{
-        //    get { return new ICommandDelegate((Window stuff) => this.CloseWindow()); }
-        //}
+
 
 
     }

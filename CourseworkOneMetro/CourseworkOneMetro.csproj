@@ -82,12 +82,14 @@
     <Compile Include="Models\Instutution.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="ViewModels\CertificateViewModel.cs" />
+    <Compile Include="ViewModels\Commands\CloseWindowCommand.cs" />
     <Compile Include="ViewModels\InvoiceViewModel.cs" />
     <Compile Include="ViewModels\RegistrationWindowViewModel.cs" />
     <Compile Include="ViewModels\Utils\BooleanToVisibilityConv.cs" />
     <Compile Include="ViewModels\AttendeeViewModel.cs" />
     <Compile Include="ViewModels\Utils\ICommandDelegate.cs" />
     <Compile Include="ViewModels\Utils\PropertyChangedNotifier.cs" />
+    <Compile Include="ViewModels\Utils\RelayCommand.cs" />
     <Compile Include="View\CertificateDialog.xaml.cs">
       <DependentUpon>CertificateDialog.xaml</DependentUpon>
     </Compile>
@@ -130,6 +132,7 @@
   <ItemGroup>
     <Resource Include="Resources\Images\EdNapLog.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

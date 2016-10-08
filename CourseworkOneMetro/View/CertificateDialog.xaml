@@ -1,4 +1,5 @@
-﻿<Controls:MetroWindow x:Class="CourseworkOneMetro.View.CertificateDialog"
+﻿<Controls:MetroWindow x:Name="CertificateWindow"
+                      x:Class="CourseworkOneMetro.View.CertificateDialog"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
@@ -29,6 +30,9 @@
                 HorizontalAlignment="Left"
                 Margin="200,334,0,0"
                 VerticalAlignment="Top"
-                Width="120"/>
+                Width="120"
+                Command="{Binding CloseWindowCommand}"
+                CommandParameter="{Binding ElementName=CertificateWindow}"
+                />
     </Grid>
 </Controls:MetroWindow>
