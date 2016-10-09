@@ -167,7 +167,8 @@ namespace CourseworkOneMetro.ViewModels
             "Surname",
             "ConferenceName",
             "PaperTitle",
-            "InstitutionTitle"
+            "InstitutionTitle",
+            "AttendeeRef"
         };
 
         // check the whole attendee for being valid, the dictionary is used
@@ -218,6 +219,9 @@ namespace CourseworkOneMetro.ViewModels
                         break;
                     case "InstitutionTitle":
                         error = this._attendee.ValidateInstitutionTitle();
+                        break;
+                    case "AttendeeRef":
+                        error = this._attendee.ValidateAttendeeRef();
                         break;
                 }
             }

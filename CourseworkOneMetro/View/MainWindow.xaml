@@ -46,17 +46,16 @@
                  Width="300"
                  Text="{Binding AttendeeViewModel.Surname, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  />
-        <Controls:NumericUpDown
+        <TextBox
             x:Name="AttendeeBox"
             HorizontalAlignment="Left"
-                 Height="20"
-                 Margin="50,137,0,0"
-                 VerticalAlignment="Top"
-                 Width="300"
-                 HideUpDownButtons="True"
-                 Minimum="{Binding AttendeeViewModel.MinRefNumber}"
-                 Maximum="{Binding AttendeeViewModel.MaxRefNumber}"
-                 Value="{Binding AttendeeViewModel.AttendeeRef, Mode=TwoWay}"
+            Height="20"
+            Margin="50,137,0,0"
+            VerticalAlignment="Top"
+            Width="300"
+            Text="{Binding AttendeeViewModel.AttendeeRef, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+            ToolTip="Your reference number, this is a number between 40000 and 60000"
+            KeyDown="HandleKeydownEvent"
             />
         
         <TextBox x:Name="InstitutionBox"
@@ -137,7 +136,7 @@
                FontSize="10.667"
                />
         <Label x:Name="AttendeeRefLabel"
-               Content="Attendee Reference*"
+               Content="Attendee Reference"
                HorizontalAlignment="Left"
                Margin="48,117,0,0"
                VerticalAlignment="Top"

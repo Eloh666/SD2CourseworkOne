@@ -16,7 +16,7 @@ using MahApps.Metro.Controls;
 namespace CourseworkOneMetro.View
 {
     /// <summary>
-    /// Interaction logic for InvoiceDialog.xaml
+    /// View for the invoice dialog
     /// </summary>
     public partial class InvoiceDialog : MetroWindow
     {

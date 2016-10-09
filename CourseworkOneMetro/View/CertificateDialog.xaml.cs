@@ -16,7 +16,7 @@ using MahApps.Metro.Controls;
 namespace CourseworkOneMetro.View
 {
     /// <summary>
-    /// Interaction logic for CertificateDialog.xaml
+    /// View for the certificate dialog
     /// </summary>
     public partial class CertificateDialog : MetroWindow
     {
