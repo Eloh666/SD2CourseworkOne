@@ -6,9 +6,11 @@ using CourseworkOneMetro.ViewModels.Commands;
 using CourseworkOneMetro.ViewModels.Utils;
 
 
-// view model for the Invoice Window
 namespace CourseworkOneMetro.ViewModels
 {
+    /// <summary>
+    /// view model for the Invoice Window
+    /// </summary>
     public class InvoiceViewModel : PropertyChangedNotifier
     {
         private readonly Attendee _currentAttendee;
@@ -24,6 +26,7 @@ namespace CourseworkOneMetro.ViewModels
 
         public string Institution { get; }
 
+        // sets up the visible fields of the invoice and the command to close the window
         public InvoiceViewModel(Attendee currentAttendee)
         {
             this._currentAttendee = currentAttendee;

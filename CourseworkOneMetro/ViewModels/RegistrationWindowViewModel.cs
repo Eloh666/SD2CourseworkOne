@@ -8,11 +8,11 @@ using MahApps.Metro.Controls.Dialogs;
 // view model for the main windopw
 namespace CourseworkOneMetro.ViewModels
 {
-    /*
-    * extends the PropertyChangedNotifier class which implements INotifyPropertyChanged interface
-    * extending an implementation of the interface instead of implementing said interface everytime
-    * saves some repetition and keeps the code a bit more DRY when possible
-    */
+    /// <summary>
+    /// extends the PropertyChangedNotifier class which implements INotifyPropertyChanged interface
+    /// extending an implementation of the interface instead of implementing said interface everytime
+    /// saves some repetition and keeps the code a bit more DRY when possible
+    /// </summary>
     public class RegistrationWindowViewModel : PropertyChangedNotifier
     {
         private readonly AttendeeViewModel _attendeeViewModel;
@@ -103,12 +103,11 @@ namespace CourseworkOneMetro.ViewModels
         }
 
 
+        // accessor for the attendee
+        public AttendeeViewModel AttendeeViewModel => this._attendeeViewModel;
 
-        public AttendeeViewModel AttendeeViewModel
-        {
-            get { return this._attendeeViewModel; }
-        }
 
+        // helper to display full validation warning
         private void FormInvalidWarning()
         {
             _dialogCoordinator.ShowMessageAsync(this, "Form is invalid",

@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using CourseworkOneMetro.ViewModels.Utils;
 
+// simple class relay command implementation of a close window event handler
 namespace CourseworkOneMetro.ViewModels.Commands
 {
     public class CloseWindowCommand
@@ -12,6 +13,7 @@ namespace CourseworkOneMetro.ViewModels.Commands
             this.CloseWindow = new RelayCommand<Window>(this.CloseWindowRequest);
         }
 
+        // if the window is not null, it gets closed (null propagation)
         private void CloseWindowRequest(Window window)
         {
             window?.Close();

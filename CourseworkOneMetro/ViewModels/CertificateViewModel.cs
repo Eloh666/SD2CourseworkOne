@@ -4,16 +4,18 @@ using CourseworkOneMetro.ViewModels.Commands;
 using CourseworkOneMetro.ViewModels.Utils;
 
 
-// view model for the certificate window
-
 namespace CourseworkOneMetro.ViewModels
 {
+    /// <summary>
+    /// view model for the certificate window
+    /// </summary>
     public class CertificateViewModel : PropertyChangedNotifier
     {
         private readonly Attendee _currentAttendee;
         public string CertificateLabel { get; set; }
         public RelayCommand<Window> CloseWindowCommand { get; private set; }
 
+        // builds the certificate string and instanciates a proper close window command handler
         public CertificateViewModel(Attendee currentAttendee)
         {
             this._currentAttendee = currentAttendee;
@@ -28,10 +30,5 @@ namespace CourseworkOneMetro.ViewModels
                                         : " and presented a paper entitled " + this._currentAttendee.PaperTitle);
             this.CloseWindowCommand = new CloseWindowCommand().CloseWindow;
         }
-
-
-
-
-
     }
 }

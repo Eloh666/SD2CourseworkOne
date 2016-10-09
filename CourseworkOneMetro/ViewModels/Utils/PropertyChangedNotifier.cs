@@ -2,6 +2,10 @@
 
 namespace CourseworkOneMetro.ViewModels.Utils
 {
+   /// <summary>
+   /// Basic implementation fo the INotifyPropertyChanged interface.
+   /// The viewmodels can simply extend this class to avoid having to reimplement the interface every time.
+   /// </summary>
     public class PropertyChangedNotifier : INotifyPropertyChanged
     {
         // implements the INotifyPropertyChanged interface

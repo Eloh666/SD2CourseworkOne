@@ -3,8 +3,12 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace CourseworkOneMetro.ViewModels
+namespace CourseworkOneMetro.ViewModels.Utils
 {
+    /// <summary>
+    /// Implementation of a class to convert a moolean into a visibility property using the IValueConverter interface
+    /// REFERENCE: this is not entirely my implementation, MSDN documentation as well as guides have been used
+    /// </summary>
     [ValueConversion(typeof(bool), typeof(Visibility))]
     public sealed class BoolToVisibilityConv : IValueConverter
     {
@@ -13,7 +17,7 @@ namespace CourseworkOneMetro.ViewModels
 
         public BoolToVisibilityConv()
         {
-            // set defaults
+            // sets defaults
             TrueValue = Visibility.Visible;
             FalseValue = Visibility.Hidden;
         }

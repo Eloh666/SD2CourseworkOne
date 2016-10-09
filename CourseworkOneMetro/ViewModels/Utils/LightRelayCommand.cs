@@ -3,6 +3,9 @@ using System.Windows.Input;
 
 namespace CourseworkOneMetro.ViewModels.Utils
 {
+    /// <summary>
+    /// Zero parameters implementation of ar RelayCommand.
+    /// </summary>
     public class LightRelayCommand : ICommand
     {
 

@@ -8,11 +8,12 @@
                       Height="450"
                       Width="750"
                       xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                      xmlns:utils="clr-namespace:CourseworkOneMetro.ViewModels.Utils"
                       Dialog:DialogParticipation.Register="{Binding}"
                       >
 
     <Controls:MetroWindow.Resources>
-        <viewModel:BoolToVisibilityConv
+        <utils:BoolToVisibilityConv
          x:Key="BoolToHiddenConverter"
          TrueValue="Visible" FalseValue="Hidden" />
     </Controls:MetroWindow.Resources>

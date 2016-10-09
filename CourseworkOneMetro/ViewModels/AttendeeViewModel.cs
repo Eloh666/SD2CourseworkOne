@@ -5,16 +5,19 @@ using System.ComponentModel;
 using CourseworkOneMetro.Models;
 using CourseworkOneMetro.ViewModels.Utils;
 
-
-// view mondel for the attendee, it encapsulates the attendee model
-
 namespace CourseworkOneMetro.ViewModels
 {
+    /// <summary>
+    /// view mondel for the attendee, it encapsulates the attendee model
+    /// </summary>
     public class AttendeeViewModel : PropertyChangedNotifier, IDataErrorInfo
     {
         private Attendee _attendee;
-        private Dictionary<string, bool> _fieldsUseDictionary;
+        private readonly Dictionary<string, bool> _fieldsUseDictionary;
 
+        // 0 args constructor for the viewModel that wraps the attendee, the dictionary is used
+        // to avoid displaying the validation errors until a field has actually been used
+        // at least once or the user has tried to save/open an extra window
         public AttendeeViewModel()
         {
             _attendee = new Attendee();
@@ -27,22 +30,29 @@ namespace CourseworkOneMetro.ViewModels
             this._fieldsUseDictionary.Add("InstitutionTitle", false);
         }
 
+        // wrapper that clears the instancied attendee model and notifies the view
         public void Clear()
         {
             this._attendee.Clear();
             OnPropertyChangedEvent(null);
         }
 
+        // extracts the model to be saved when necessary
         public Attendee GetAttendeeSavedData()
         {
             return (Attendee) _attendee.Clone();
         }
 
+        // loads a saved attendee model
         public void LoadSavedAttendee(Attendee savedAttendee)
         {
             this._attendee = new Attendee(savedAttendee);
             OnPropertyChangedEvent(null);
         }
+
+
+        // Accessor/Wrrapers for the attendee properties,
+        // they all refresh the view through the INotify interface
 
         public string Name
         {
@@ -141,40 +151,16 @@ namespace CourseworkOneMetro.ViewModels
         }
 
 
-        public ArrayList RegistrationTypes
-        {
-            get { return _attendee.RegistrationTypes; }
+        // simple getters for the constants
+        public ArrayList RegistrationTypes => _attendee.RegistrationTypes;
+        public uint MinRefNumber => _attendee.MinRefNumber;
+        public uint MaxRefNumber => _attendee.MaxRefNumber;
 
-        }
+        // Simple version of the Interface IDataError implementation & general validation logic
+        string IDataErrorInfo.Error => null;
+        string IDataErrorInfo.this[string fieldName] => GetValidationError(fieldName);
 
-        public uint MinRefNumber
-        {
-            get { return _attendee.MinRefNumber; }
-
-        }
-
-        public uint MaxRefNumber
-        {
-            get { return _attendee.MaxRefNumber; }
-
-        }
-
-        // Interface IDataError Implementation & validation logic
-
-
-        string IDataErrorInfo.Error
-        {
-            get { return null; }
-        }
-
-        string IDataErrorInfo.this[string fieldName]
-        {
-            get
-            {
-                return GetValidationError(fieldName);
-            }
-        }
-
+        // fields that require validation
         private static readonly string[] ValidationFields =
         {
             "Name",
@@ -184,6 +170,9 @@ namespace CourseworkOneMetro.ViewModels
             "InstitutionTitle"
         };
 
+        // check the whole attendee for being valid, the dictionary is used
+        // to avoid displaying the validation errors until a field has actually been used
+        // at least once or the user has tried to save/open an extra window
         public bool IsAttendeeValid
         {
             get
@@ -207,7 +196,7 @@ namespace CourseworkOneMetro.ViewModels
             }
         }
 
-
+        // validates fields based on the requirements of the model
         private string GetValidationError(String fieldName)
         {
             string error = null;

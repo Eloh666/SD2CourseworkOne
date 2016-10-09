@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.ComponentModel;
-using CourseworkOneMetro.Models.EmptyStringValidation;
+using CourseworkOneMetro.Models.Utils;
 
 namespace CourseworkOneMetro.Models
 {
-    // attende model, extends Person and implements the ICloneable interface
+    /// <summary>
+    /// attende model, extends Person and implements the ICloneable interface
+    /// </summary>
     public class Attendee : Person, ICloneable
     {
-        // needs capital letter
+        // needs capital letter for naming convention being a constant
         private const uint Minrefnum = 40000;
         private const uint Maxrefnum = 60000;
 
@@ -47,19 +49,6 @@ namespace CourseworkOneMetro.Models
             this.InstitutionTitle = oldAttendee.InstitutionTitle;
         }
 
-        public uint MaxRefNumber => Minrefnum;
-        public uint MinRefNumber => Maxrefnum;
-
-        public bool Presenter
-        {
-            get { return _presenter; }
-            set
-            {
-                this.PaperTitle = value ? this.PaperTitle : null;
-                _presenter = value;
-            }
-        }
-
         // implements the ICloneable interface, simply clones the object
         public object Clone()
         {
@@ -80,6 +69,22 @@ namespace CourseworkOneMetro.Models
             this.InstitutionTitle = "";
         }
 
+
+        // Accessors
+        public uint MaxRefNumber => Minrefnum;
+        public uint MinRefNumber => Maxrefnum;
+
+        public bool Presenter
+        {
+            get { return _presenter; }
+            set
+            {
+                this.PaperTitle = value ? this.PaperTitle : null;
+                _presenter = value;
+            }
+        }
+
+        // would have made this one an accessor as well, but the specs wanted a method
         public ushort GetCost()
         {
             switch (RegistrationType)
@@ -95,6 +100,7 @@ namespace CourseworkOneMetro.Models
             }
         }
 
+        // accessors for institution properties and contents of the registration combo box
         public string InstitutionTitle
         {
             get { return this._institution.InstitutionTitle; }
@@ -108,6 +114,8 @@ namespace CourseworkOneMetro.Models
 
         public ArrayList RegistrationTypes { get; } = new ArrayList();
 
+
+        // validation for the paper title
         public string ValidatePaperTitle()
         {
             if (!this.Presenter && this.PaperTitle == null)
@@ -120,6 +128,8 @@ namespace CourseworkOneMetro.Models
             }
         }
 
+
+        // validation for the conference name
         public string ValidateConferenceName()
         {
             return ValidationUtilities.ValidateNonEmpty("Conference Name", this.ConferenceName);
@@ -139,6 +149,7 @@ namespace CourseworkOneMetro.Models
             }
         }
 
+        // passes on the validation for the institution title and address
         public string ValidateInstitutionTitle()
         {
             return this._institution.ValidateInstitutionTitle();
