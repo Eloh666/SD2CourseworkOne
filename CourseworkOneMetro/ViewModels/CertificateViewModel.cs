@@ -12,7 +12,7 @@ namespace CourseworkOneMetro.ViewModels
     public class CertificateViewModel : PropertyChangedNotifier
     {
         private readonly Attendee _currentAttendee;
-        public string CertificateLabel { get; set; }
+        public string CertificateLabel { get;}
         public RelayCommand<Window> CloseWindowCommand { get; private set; }
 
         // builds the certificate string and instanciates a proper close window command handler
