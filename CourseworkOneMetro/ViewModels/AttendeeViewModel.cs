@@ -34,6 +34,12 @@ namespace CourseworkOneMetro.ViewModels
         public void Clear()
         {
             this._attendee.Clear();
+            this._fieldsUseDictionary["Name"] = false;
+            this._fieldsUseDictionary["Surname"] = false;
+            this._fieldsUseDictionary["AttendeeRef"] = false;
+            this._fieldsUseDictionary["ConferenceName"] = false;
+            this._fieldsUseDictionary["PaperTitle"] = false;
+            this._fieldsUseDictionary["InstitutionTitle"] = false;
             OnPropertyChangedEvent(null);
         }
 
@@ -124,7 +130,12 @@ namespace CourseworkOneMetro.ViewModels
             set
             {
                 _attendee.Presenter = value;
+                if (!value)
+                {
+                    this._fieldsUseDictionary["PaperTitle"] = false;
+                }
                 OnPropertyChangedEvent("Presenter");
+                OnPropertyChangedEvent("PaperTitle");
             }
         }
 

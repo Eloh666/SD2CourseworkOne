@@ -44,3 +44,4 @@ C:\Users\Eloh\Documents\GitHub\SoftwareDevelopment2\Coursework1\CourseworkOneMet
 C:\Users\Eloh\Documents\GitHub\SoftwareDevelopment2\Coursework1\CourseworkOneMetro\CourseworkOneMetro\obj\Debug\CourseworkOneMetro.csproj.GenerateResource.Cache
 C:\Users\Eloh\Documents\GitHub\SoftwareDevelopment2\Coursework1\CourseworkOneMetro\CourseworkOneMetro\obj\Debug\CourseworkOneMetro.exe
 C:\Users\Eloh\Documents\GitHub\SoftwareDevelopment2\Coursework1\CourseworkOneMetro\CourseworkOneMetro\obj\Debug\CourseworkOneMetro.pdb
+C:\Users\Eloh\Documents\GitHub\SoftwareDevelopment2\Coursework1\CourseworkOneMetro\CourseworkOneMetro\obj\Debug\CourseworkOneMetro.csprojResolveAssemblyReference.cache

@@ -15,13 +15,13 @@ namespace CourseworkOneMetro.Models
         // validates institution name
         public string ValidateInstitutionTitle()
         {
-            return ValidationUtilities.ValidateNonEmpty("InstitutionTitle", this.InstitutionTitle);
+            return ValidationUtilities.ValidateNonEmpty("Institution Name", this.InstitutionTitle);
         }
 
         // validates address
         public string ValidateInstitutionAddress()
         {
-            return ValidationUtilities.ValidateNonEmpty("InstitutionAddress", this.InstitutionAddress);
+            return ValidationUtilities.ValidateNonEmpty("Institution Address", this.InstitutionAddress);
         }
 
     }
