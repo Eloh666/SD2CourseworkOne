@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using CourseworkOneMetro.Models;
@@ -237,7 +236,6 @@ namespace CourseworkOneMetro.ViewModels
         // validates fields based on the requirements of the model
         private string GetValidationError(String fieldName)
         {
-            Console.WriteLine(fieldName);
             string error = null;
             if (this._fieldsUseDictionary[fieldName])
             {

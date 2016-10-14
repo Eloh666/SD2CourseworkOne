@@ -214,6 +214,12 @@
               <referencedTypeMoniker Id="a2963c23-e5d2-4daa-88a2-a8e0120c5121" LastKnownName="string" />
             </type_NamedElement>
           </property>
+          <property Id="f42483b7-14ae-4448-bfba-4b5c68876384" name="InstitutionNameProvided {get; set;}" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="75b216b2-aec0-4270-b8c2-36c9bb15acb5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a5dbbb29-699b-48f9-b30d-57ae4aa1666c" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="2e181785-1676-4943-a7f0-859bae778394" name="AttendeeViewModel" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -1292,6 +1298,19 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="c575a336-4ca0-4bcc-bfce-5a93a72fce64" name="ValidateRegistrationType" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e8ec02e9-de1e-4c2b-84da-6da4f890b13e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d9ba5486-e3bb-4a82-8794-d4108f103f34" direction="Return" isUnique="false">
+                  <elementDefinition Id="c5ba7aa8-766b-4049-a135-79ddf869b731" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="04ec3f77-5ad7-43dc-856c-bb493a3a5d74" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -1673,6 +1692,16 @@
     <packageHasNamedElement>
       <referencedType Id="c28a09dc-0a5d-4a72-8b94-c4bde5d8e9fc" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
         <elementDefinition Id="bfdf8b84-68f4-4041-ab44-0bc45fba8c5f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="04ec3f77-5ad7-43dc-856c-bb493a3a5d74" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="bfdf8b84-68f4-4041-ab44-0bc45fba8c5f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="a5dbbb29-699b-48f9-b30d-57ae4aa1666c" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="49dfeff3-c249-4525-b409-bcde55d54080" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

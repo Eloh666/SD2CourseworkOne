@@ -541,6 +541,24 @@
                 LastKnownLocation="CourseWorkMetroUML.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="75b216b2-aec0-4270-b8c2-36c9bb15acb5"
+            name="InstitutionNameProvided {get; set;}"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="49dfeff3-c249-4525-b409-bcde55d54080"
+                LastKnownName="bool"
+                LastKnownLocation="CourseWorkMetroUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -2339,6 +2357,30 @@
               <operationHasOwnedParameters>
                 <parameter
                   Id="6f748f7c-016c-40db-b8a0-92268bb0746a"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="bfdf8b84-68f4-4041-ab44-0bc45fba8c5f"
+                      LastKnownName="string"
+                      LastKnownLocation="CourseWorkMetroUML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e8ec02e9-de1e-4c2b-84da-6da4f890b13e"
+            name="ValidateRegistrationType"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c5ba7aa8-766b-4049-a135-79ddf869b731"
                   direction="Return"
                   isUnique="false">
                   <type_NamedElement>
