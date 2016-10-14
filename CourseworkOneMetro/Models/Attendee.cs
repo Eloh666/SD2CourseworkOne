@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.ComponentModel;
+using System.Collections.Generic;
+using System.Linq;
 using CourseworkOneMetro.Models.Utils;
 
 namespace CourseworkOneMetro.Models
@@ -27,7 +27,6 @@ namespace CourseworkOneMetro.Models
         public Attendee()
         {
             this._institution = new Instutution();
-            this.RegistrationType = "Student";
             this.RegistrationTypes.Add("Student");
             this.RegistrationTypes.Add("Full");
             this.RegistrationTypes.Add("Organiser");
@@ -60,13 +59,13 @@ namespace CourseworkOneMetro.Models
         {
             this.Paid = false;
             this.Presenter = false;
-            this.RegistrationType = "Student";
-            this.Name = "";
-            this.Surname = "";
-            this.PaperTitle = "";
+            this.Name = null;
+            this.Surname = null;
+            this.PaperTitle = null;
             this.AttendeeRef = 0;
-            this.ConferenceName = "";
-            this.InstitutionTitle = "";
+            this.ConferenceName = null;
+            this.InstitutionTitle = null;
+            this.RegistrationType = null;
         }
 
 
@@ -112,15 +111,17 @@ namespace CourseworkOneMetro.Models
             set { this._institution.InstitutionAddress = value; }
         }
 
-        public ArrayList RegistrationTypes { get; } = new ArrayList();
+        public List<string> RegistrationTypes { get; } = new List<string>();
 
 
         // validation for the paper title
         public string ValidatePaperTitle()
         {
-            if (!this.Presenter && this.PaperTitle == null)
+            if (!this.Presenter)
             {
-                return null;
+                // with the current error handling managed by the view model and the model itself, the second scenario
+                // cannot happen, however I am adding the check due to the requirements of the coursework
+                return this.PaperTitle == null ? null : "The title of the paper must be null if you are not presenting";
             }
             else
             {
@@ -146,6 +147,18 @@ namespace CourseworkOneMetro.Models
             {
                 return
                     "The attendee reference number is invalid. The reference nuber interval is between 40000 and 60000";
+            }
+        }
+
+        public string ValidateRegistrationType()
+        {
+            if (this.RegistrationTypes.Count(item => item == this.RegistrationType) != 0)
+            {
+                return null;
+            }
+            else
+            {
+                return "Please select a value";
             }
         }
 

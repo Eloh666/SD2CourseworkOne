@@ -13,15 +13,26 @@ namespace CourseworkOneMetro.Models
         public string InstitutionAddress { get; set; }
 
         // validates institution name
+        // the requirements for validating the institution name were "may be left blank"
+        // for this reason the validation will always return a null error string
         public string ValidateInstitutionTitle()
         {
-            return ValidationUtilities.ValidateNonEmpty("Institution Name", this.InstitutionTitle);
+            return null;
         }
 
         // validates address
+        // since no requirement was offered the rule for validating the address is, must be null if the title 
+        // null, otherwise must provided (not an empty string)
         public string ValidateInstitutionAddress()
         {
-            return ValidationUtilities.ValidateNonEmpty("Institution Address", this.InstitutionAddress);
+            if (this.InstitutionTitle == null)
+            {
+                return this.InstitutionAddress == null ? null : "Please also provide the institution title";
+            }
+            else
+            {
+                return ValidationUtilities.ValidateNonEmpty("Institution Address", this.InstitutionAddress);
+            }
         }
 
     }

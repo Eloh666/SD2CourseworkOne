@@ -28,6 +28,8 @@ namespace CourseworkOneMetro.ViewModels
             this._fieldsUseDictionary.Add("ConferenceName", false);
             this._fieldsUseDictionary.Add("PaperTitle", false);
             this._fieldsUseDictionary.Add("InstitutionTitle", false);
+            this._fieldsUseDictionary.Add("InstitutionAddress", false);
+            this._fieldsUseDictionary.Add("RegistrationType", false);
         }
 
         // wrapper that clears the instancied attendee model and notifies the view
@@ -40,6 +42,8 @@ namespace CourseworkOneMetro.ViewModels
             this._fieldsUseDictionary["ConferenceName"] = false;
             this._fieldsUseDictionary["PaperTitle"] = false;
             this._fieldsUseDictionary["InstitutionTitle"] = false;
+            this._fieldsUseDictionary["InstitutionAddress"] = false;
+            this._fieldsUseDictionary["RegistrationType"] = false;
             OnPropertyChangedEvent(null);
         }
 
@@ -110,6 +114,7 @@ namespace CourseworkOneMetro.ViewModels
             set
             {
                 _attendee.RegistrationType = value;
+                this._fieldsUseDictionary["RegistrationType"] = true;
                 OnPropertyChangedEvent("RegistrationType");
             }
         }
@@ -157,13 +162,30 @@ namespace CourseworkOneMetro.ViewModels
             {
                 _attendee.InstitutionTitle = value;
                 this._fieldsUseDictionary["InstitutionTitle"] = true;
-                OnPropertyChangedEvent("InstitutionTitle");
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    _attendee.InstitutionAddress = null;
+                    this._fieldsUseDictionary["InstitutionAddress"] = false;
+                }
+                OnPropertyChangedEvent(null);
+            }
+        }
+        public string InstitutionAddress
+        {
+            get { return _attendee.InstitutionAddress; }
+            set
+            {
+                _attendee.InstitutionAddress = value;
+                this._fieldsUseDictionary["InstitutionAddress"] = true;
+                OnPropertyChangedEvent("InstitutionAddress");
             }
         }
 
+        public bool InstitutioNameProvided => !string.IsNullOrWhiteSpace(this.InstitutionTitle);
+
 
         // simple getters for the constants
-        public ArrayList RegistrationTypes => _attendee.RegistrationTypes;
+        public List<string> RegistrationTypes => _attendee.RegistrationTypes;
         public uint MinRefNumber => _attendee.MinRefNumber;
         public uint MaxRefNumber => _attendee.MaxRefNumber;
 
@@ -179,7 +201,9 @@ namespace CourseworkOneMetro.ViewModels
             "ConferenceName",
             "PaperTitle",
             "InstitutionTitle",
-            "AttendeeRef"
+            "InstitutionAddress",
+            "AttendeeRef",
+            "RegistrationType"
         };
 
         // check the whole attendee for being valid, the dictionary is used
@@ -195,6 +219,8 @@ namespace CourseworkOneMetro.ViewModels
                 this._fieldsUseDictionary["ConferenceName"] = true;
                 this._fieldsUseDictionary["PaperTitle"] = true;
                 this._fieldsUseDictionary["InstitutionTitle"] = true;
+                this._fieldsUseDictionary["InstitutionAddress"] = true;
+                this._fieldsUseDictionary["RegistrationType"] = true;
 
 
                 foreach (string field in ValidationFields)
@@ -211,6 +237,7 @@ namespace CourseworkOneMetro.ViewModels
         // validates fields based on the requirements of the model
         private string GetValidationError(String fieldName)
         {
+            Console.WriteLine(fieldName);
             string error = null;
             if (this._fieldsUseDictionary[fieldName])
             {
@@ -231,8 +258,14 @@ namespace CourseworkOneMetro.ViewModels
                     case "InstitutionTitle":
                         error = this._attendee.ValidateInstitutionTitle();
                         break;
+                    case "InstitutionAddress":
+                        error = this._attendee.ValidateInstitutionAddress();
+                        break;
                     case "AttendeeRef":
                         error = this._attendee.ValidateAttendeeRef();
+                        break;
+                    case "RegistrationType":
+                        error = this._attendee.ValidateRegistrationType();
                         break;
                 }
             }
