@@ -6,7 +6,9 @@ using CourseworkOneMetro.ViewModels.Utils;
 
 namespace CourseworkOneMetro.ViewModels
 {
-    /// <summary>
+    /// <summary>+
+    /// Created by Davide Morello
+    /// Last Modified October 
     /// view model for the certificate window
     /// </summary>
     public class CertificateViewModel : PropertyChangedNotifier

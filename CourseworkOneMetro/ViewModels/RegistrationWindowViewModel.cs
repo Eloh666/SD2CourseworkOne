@@ -9,6 +9,8 @@ using MahApps.Metro.Controls.Dialogs;
 namespace CourseworkOneMetro.ViewModels
 {
     /// <summary>
+    /// Created by Davide Morello
+    /// Last Modified October 
     /// extends the PropertyChangedNotifier class which implements INotifyPropertyChanged interface
     /// extending an implementation of the interface instead of implementing said interface everytime
     /// saves some repetition and keeps the code a bit more DRY when possible

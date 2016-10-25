@@ -5,6 +5,8 @@ using MahApps.Metro.Controls;
 namespace CourseworkOneMetro
 {
     /// <summary>
+    /// Created by Davide Morello
+    /// Last Modified October 
     /// view for the main window
     /// </summary>
     public partial class MainWindow : MetroWindow

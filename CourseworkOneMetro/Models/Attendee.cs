@@ -6,6 +6,8 @@ using CourseworkOneMetro.Models.Utils;
 namespace CourseworkOneMetro.Models
 {
     /// <summary>
+    /// Created by Davide Morello
+    /// Last Modified October 
     /// attende model, extends Person and implements the ICloneable interface
     /// </summary>
     public class Attendee : Person, ICloneable

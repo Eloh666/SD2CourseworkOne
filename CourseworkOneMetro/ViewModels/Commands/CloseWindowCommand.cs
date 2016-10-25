@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using CourseworkOneMetro.ViewModels.Utils;
 
+// Created by Davide Morello
+// Last Modified October 
 // simple class relay command implementation of a close window event handler
 namespace CourseworkOneMetro.ViewModels.Commands
 {

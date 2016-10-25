@@ -4,6 +4,8 @@ using CourseworkOneMetro.Models.Utils;
 namespace CourseworkOneMetro.Models
 {
     /// <summary>
+    /// Created by Davide Morello
+    /// Last Modified October 
     /// model for the institution
     /// </summary>
     public class Instutution

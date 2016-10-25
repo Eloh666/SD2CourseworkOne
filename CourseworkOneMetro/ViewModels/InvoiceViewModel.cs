@@ -9,6 +9,8 @@ using CourseworkOneMetro.ViewModels.Utils;
 namespace CourseworkOneMetro.ViewModels
 {
     /// <summary>
+    /// Created by Davide Morello
+    /// Last Modified October 
     /// view model for the Invoice Window
     /// </summary>
     public class InvoiceViewModel : PropertyChangedNotifier

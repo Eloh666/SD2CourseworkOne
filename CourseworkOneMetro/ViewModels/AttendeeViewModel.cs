@@ -7,6 +7,8 @@ using CourseworkOneMetro.ViewModels.Utils;
 namespace CourseworkOneMetro.ViewModels
 {
     /// <summary>
+    /// Created by Davide Morello
+    /// Last Modified October 
     /// view mondel for the attendee, it encapsulates the attendee model
     /// </summary>
     public class AttendeeViewModel : PropertyChangedNotifier, IDataErrorInfo

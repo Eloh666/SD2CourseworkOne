@@ -4,6 +4,8 @@ using System.Windows.Input;
 namespace CourseworkOneMetro.ViewModels.Utils
 {
     /// <summary>
+    /// Created by Davide Morello
+    /// Last Modified October 
     /// Proper full implementation of the the RelayCommand class based on the ICommand interface
     /// </summary>
     /// <typeparam name="T"></typeparam>

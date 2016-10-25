@@ -25,6 +25,46 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="9c14ca36-c2b2-448b-9049-2a0a71d521be"
+            isDerived="false"
+            sourceEndRoleName="2-Way-Binding"
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="a7c1bd4a-4ace-484e-8beb-b73b60f95dd0"
+              LastKnownName="RegistrationViewModel"
+              LastKnownLocation="CourseWorkMetroUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="62ad8044-3c80-4a1a-b1c6-baf3392d5545"
+                  name="2-Way-Binding"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="41c36616-1f2d-4d39-a069-0595e9e98778"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedOperationsInternal>
           <operation
             Id="1a13713e-66a3-4a29-929f-b6fde54c9f1a"
@@ -82,6 +122,46 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="7b035295-7ec6-4072-8f0a-f75036e6e4fb"
+            isDerived="false"
+            sourceEndRoleName="2-Way-Binding"
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="56985ace-68aa-43b4-b394-3df12070dbd3"
+              LastKnownName="InvoiceViewModel"
+              LastKnownLocation="CourseWorkMetroUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f648d4b9-7499-4153-a042-105df252b7e5"
+                  name="2-Way-Binding"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b59b67ed-4859-4dbb-8c89-81eadd2c6c10"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedOperationsInternal>
           <operation
             Id="1a52a8cf-e20e-47fd-a028-6855de2eb755"
@@ -101,6 +181,46 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="ec73f061-d7c8-4ec1-abc1-6d55b20e784e"
+            isDerived="false"
+            sourceEndRoleName="2-Way-Binding"
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1aa47755-b87d-4a96-bbd3-dbbe2a2ed7c8"
+              LastKnownName="CertificateViewModel"
+              LastKnownLocation="CourseWorkMetroUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0215e8aa-a366-418d-bed3-f2a90b548c2b"
+                  name="2-Way-Binding"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c0c585f1-0bff-416c-9883-94520afdaeee"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedOperationsInternal>
           <operation
             Id="c13e8f0b-bd9d-4dee-abde-12ed3a00d2d3"
